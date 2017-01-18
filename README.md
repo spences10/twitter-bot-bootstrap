@@ -38,7 +38,7 @@ In the project tree delete the example project files of `client`, `package.json`
 In your new Node.js c9 environment go to the terminal and enter:
 
 ```
-git clone https://github.com/spences10/twitter-bot-bootstrap
+$ git clone https://github.com/spences10/twitter-bot-bootstrap
 ```
 
 ## Project structure
@@ -86,7 +86,7 @@ Check the Twitter account:
 
 Cool, now we have a bot that we can test on our dev environment but we can't leave it there, we'll need to deploy it to Heroku.
 
-If you haven't done so already set up a Heroku account then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
+If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
 
 ![](/src/images/heroku-create-new-app.png)
 
@@ -178,6 +178,15 @@ $ heroku logs -t
 
 You should now have a bot you can leave to do its thing forever more, or until you decide you want to change the search criteria :smile:
 
+## Heroku deployment via GitHub
+
+You can also deploy your app by connecting to GitHub and deploy automatically to Heroku each time your master branch is updated on GitHub, this is straight forward enough.
+
+Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method if you have connected your GitHub account to your Heroku account then you can search for the repository so if you forked this repo then you can just enter ` twitter-bot-bootstrap` and **Search** you can then click the **Connect** button, you can then auto deploy from GitHub.
+
+![](/src/images/heroku-connect-github.png)
+
+
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
@@ -202,6 +211,11 @@ By default you can only push your master branch if you are working on a developm
 ```
 $ git push heroku dev:master
 ```
+
+## Contributing
+Please fork this repository and contribute back using pull requests.
+
+Any contributions, large or small, major features, bugfixes and integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
 
 #### Links
 
