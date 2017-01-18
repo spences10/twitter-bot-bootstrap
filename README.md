@@ -2,7 +2,7 @@
 
 This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
 
-As a primer for this there are the great posts by @amanhimself on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
+As a primer for this there are the great posts by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
 
 ## What you'll need
 
@@ -49,14 +49,14 @@ The environment project tree should look something like this.
 
 ## Node dependencies
 
-Before configuring the bot we'll need to install some dependencies:
+Before configuring the bot we'll need to install some dependencies, from the terminal enter:
 
 ```
 $ npm install --save twit
 $ npm install --save unique-random-array
 ```
 
-Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot.
+Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot, from the terminal enter.
 
 ```
 $ npm init
@@ -64,11 +64,11 @@ $ npm init
 
 This will configure the `package.json` file with your details as desired, just keep hitting return if you're happy with the defaults.
 
-Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords for what you want to search on.
+Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on.
 
 ![](/src/images/c9-strings-config.png)
 
-Then add the username of the Twitter account you are using to the `tweetNow` function, this will ensure your bot doesn't reply to itself when it has been followed by a user.
+Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
 ![](/src/images/c9-strings-config1.png)
 
@@ -205,7 +205,7 @@ $ git push heroku dev:master
 
 #### Links
 
-Credit for the inspiration for this should go to @amanhimself and his posts on creating your own twitter bot
+Credit for the inspiration for this should go to [@amanhimself](https://twitter.com/amanhimself) and his posts on creating your own twitter bot.
 
 [create-a-simple-twitter-bot-with-node-js](https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08#.flysreo60)
 
