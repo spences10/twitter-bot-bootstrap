@@ -104,11 +104,47 @@ Then check the output with:
 
 All good? 
 
-## Heroku `Procfile`
-
 ## Heroku variables
 
-Now that we have our bot on Heroku we can use environment variables to store our Twitter keys so that if in the future we want to add our code to GitHub we don't have to exclude the `config.js` file or add our keys publicly. 
+Now that we have our bot on Heroku we can use environment variables to store our Twitter keys so that if in the future we want to add our code to GitHub we don't have to exclude the `config.js` file or add our keys publicly.
+
+If you take a look at the `config.js` file of this project you'll see there's several lines commented output:
+
+```
+module.exports = {
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+};
+``` 
+
+All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys, click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
+
+```
+CONSUMER_KEY
+CONSUMER_SECRET
+ACCESS_TOKEN
+ACCESS_TOKEN_SECRET
+```
+
+Once you have the Heroku vars set up then you can un-comment the `module.exports` section in the `config.js` file on your development environment and you're ready to deploy to Heroku again without your Twitter keys.
+
+Your console commands should look something like this:
+
+```
+git add .
+git commit -m 'some interesting msg' 
+git push heroku master
+```
+
+Then you can check the Heroku logs again with:
+
+```
+heroku logs -t
+```
+
+You should now have a bot you can leave to do it's thing forever more, or until you decide you want to change the search criteria :smile:
 
 #### Links
 
