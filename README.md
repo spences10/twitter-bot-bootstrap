@@ -191,7 +191,7 @@ Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment meth
 
 What do you mean it crashed!?
 
-![](/src/images/heroku-build.png)
+![](/src/images/heroku-crash.png)
 
 Ok, I found that sometimes the `worker` is set as `web` and it crashes out try setting the `worker` again:
 
@@ -226,3 +226,6 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 [how-to-make-a-twitter-bot-with-nodejs](https://chatbotslife.com/how-to-make-a-twitter-bot-with-nodejs-d5cb04fdbf97#.h5ah8dq5n)
 
 [twitter-mctwitbot](https://medium.com/@spences10/twitter-mctwitbot-4d15cd005dc0#.dp9q5f427)
+
+[awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
+
