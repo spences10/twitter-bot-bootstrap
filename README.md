@@ -1,6 +1,6 @@
 # Twitter bot bootstrap
 
-This is a bootstrap for setting up a Twitter bot with Node using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
+This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
 
 As a primer for this there are the great posts by @amanhimself on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
 
@@ -33,28 +33,46 @@ For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and
 
 ## Set up the bot
 
-In the project tree delete the example project files of `client`, `package.json`, `README.md` and `server.js` you'll not need them.
+In the project tree delete the example project files of `client`, `package.json`, `README.md` and `server.js` you'll not need them, you can leve them there if you desire.
 
-In your new Node.js c9 environment go to the terminal and `git clone https://github.com/spences10/twitter-bot-bootstrap` 
+In your new Node.js c9 environment go to the terminal and enter:
+
+```
+git clone https://github.com/spences10/twitter-bot-bootstrap
+```
+
+## Project structure
+
+The environment project tree should look something like this.
+
+![](/src/images/project-structure.png)
 
 ## Node dependencies
 
 Before configuring the bot we'll need to install some dependencies:
 
 ```
-npm install --save twit
-npm install --save unique-random-array
+$ npm install --save twit
+$ npm install --save unique-random-array
 ```
 
 Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot.
 
-`npm init`
+```
+$ npm init
+```
 
 This will configure the `package.json` file with your details as desired, just keep hitting return if you're happy with the defaults.
 
-Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add som keywords for what you want to search on.
+Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords for what you want to search on.
 
 ![](/src/images/c9-strings-config.png)
+
+Then add the username of the Twitter account you are using to the `tweetNow` function, this will ensure your bot doesn't reply to itself when it has been followed by a user.
+
+![](/src/images/c9-strings-config1.png)
+
+This step isn't strictly necessary if this account isn’t going to be following any users.
 
 That should be it, go to the terminal and enter `npm start` you should get some output:
 
@@ -64,23 +82,31 @@ Check the Twitter account:
 
 ![](/src/images/twitter-account.png)
 
-## Project structure
-
-![](/src/images/project-structure.png)
-
 ## Heroku
 
-Cool, now we have a bot that we can test on our dev environment but we cant leave it there, we'll need to deploy it to Heroku.
+Cool, now we have a bot that we can test on our dev environment but we can't leave it there, we'll need to deploy it to Heroku.
 
-If you haven't done so already set up a Heroku account then create a new app, in the next screen name it if you want, click **Create App**
+If you haven't done so already set up a Heroku account then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
+
+![](/src/images/heroku-create-new-app.png)
 
 You'll be presented with your app dashboard and instructions for the deployment method
 
+![](/src/images/heroku-deploy.png)
+
+Your app name should be displayed on the top of your dashboard, you'll need this when logging in with the Heroku CLI.
+
+![](/src/images/heroku-app-name.png)
+
 ## Heroku CLI
 
-On your c9 env terminal, log into Heroku
+We're going to deploy initially via the Heroku Command Line Interface *CLI*
 
-`heroku login`
+On your c9 environment terminal, log into Heroku [it should be installed by default]
+
+```
+$ heroku login
+```
 
 Enter your credentials.
 
@@ -90,19 +116,25 @@ $ git init
 $ heroku git:remote -a your-heroku-app-name
 ```
 
-Deploy your application
+Deploy your application.
 
 ```
-git add .
-git commit -am "make it better"
-git push heroku master
+$ git add .
+$ git commit -am 'make it better'
+$ git push heroku master
 ```
+
+You should get build output on the terminal:
+
+![](/src/images/heroku-build.png)
 
 Then check the output with:
 
-`heroku logs -t`
+```
+$ heroku logs -t
+```
 
-All good? 
+All good? Cool! :sunglasses:
 
 ## Heroku variables
 
@@ -117,7 +149,7 @@ module.exports = {
   access_token: process.env.ACCESS_TOKEN,
   access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 };
-``` 
+```
 
 All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys, click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
 
@@ -133,20 +165,47 @@ Once you have the Heroku vars set up then you can un-comment the `module.exports
 Your console commands should look something like this:
 
 ```
-git add .
-git commit -m 'some interesting msg' 
-git push heroku master
+$ git add .
+$ git commit -m 'add environment variables'
+$ git push heroku master
 ```
 
 Then you can check the Heroku logs again with:
 
 ```
-heroku logs -t
+$ heroku logs -t
 ```
 
-You should now have a bot you can leave to do it's thing forever more, or until you decide you want to change the search criteria :smile:
+You should now have a bot you can leave to do its thing forever more, or until you decide you want to change the search criteria :smile:
+
+## Heroku troubleshooting
+
+What do you mean it crashed!?
+
+![](/src/images/heroku-build.png)
+
+Ok, I found that sometimes the `worker` is set as `web` and it crashes out try setting the `worker` again:
+
+```
+$ heroku ps:scale worker=0
+$ heroku ps:scale worker=1
+```
+
+Other usefule Heroku commands I use:
+
+```
+$ heroku restart
+```
+
+By default you can only push your master branch if you are working on a development branch i.e. `dev` branch and you want to test on Heroku then you can use:
+
+```
+$ git push heroku dev:master
+```
 
 #### Links
+
+Credit for the inspiration for this should go to @amanhimself and his posts on creating your own twitter bot
 
 [create-a-simple-twitter-bot-with-node-js](https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08#.flysreo60)
 
