@@ -29,67 +29,68 @@ var rt = ura(strings.resultType)
 // * popular : return only the most popular results in the response.
 
 var retweet = function () {
-    var paramQS = qs();
-    var paramRT = rt();
+    var paramQS = qs()
+    var paramRT = rt()
     var params = {
         q: paramQS,
         result_type: paramRT,
         lang: 'en'
-    };
+    }
     Twitter.get('search/tweets', params, function (err, data) {
         // if there no errors
         if (!err) {
             // grab ID of tweet to retweet
             try {
                 // try get tweet id, derp if not
-                var retweetId = data.statuses[0].id_str;
+                var retweetId = data.statuses[0].id_str
             } catch (e) {
-                console.log('retweetId DERP! ', e.message);
-                return;
+                console.log('retweetId DERP! ', e.message)
+                return
             }
             // Tell TWITTER to retweet
             Twitter.post('statuses/retweet/:id', {
                 id: retweetId
             }, function (err, response) {
                 if (response) {
-                    console.log('RETWEETED!', ' Query String: ' + paramQS);
+                    console.log('RETWEETED!', ' Query String: ' + paramQS)
                 }
                 // if there was an error while tweeting
                 if (err) {
-                    console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQS);
+                    console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQS)
                 }
-            });
+            })
         }
         // if unable to Search a tweet
         else {
-            console.log('Something went wrong while SEARCHING...');
+            console.log('Something went wrong while SEARCHING...')
         }
-    });
+    })
 }
 
 // retweet on bot start
-retweet();
+retweet()
 // retweet in every x minutes
-setInterval(retweet, 60000 * retweetFrequency);
+setInterval(retweet, 60000 * retweetFrequency)
 
 // FAVORITE BOT====================
 
 // find a random tweet and 'favorite' it
 var favoriteTweet = function () {
-    var paramQS = qs();
-    var paramRT = rt();
+    var paramQS = qs()
+    paramQS += qsSq()
+    var paramRT = rt()
     var params = {
         q: paramQS,
         result_type: paramRT,
         lang: 'en'
-    };
+    }
 
     // find the tweet
     Twitter.get('search/tweets', params, function (err, data) {
 
         // find tweets
-        var tweet = data.statuses;
-        var randomTweet = ranDom(tweet); // pick a random tweet
+        var tweet = data.statuses
+        var randomTweet = ranDom(tweet) // pick a random tweet
 
         // if random tweet exists
         if (typeof randomTweet != 'undefined') {
@@ -99,32 +100,32 @@ var favoriteTweet = function () {
             }, function (err, response) {
                 // if there was an error while 'favorite'
                 if (err) {
-                    console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQS);
+                    console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQS)
                 } else {
-                    console.log('FAVORITED... Success!!!', ' Query String: ' + paramQS);
+                    console.log('FAVORITED... Success!!!', ' Query String: ' + paramQS)
                 }
-            });
+            })
         }
-    });
-};
+    })
+}
 
 // favorite on bot start
-favoriteTweet();
+favoriteTweet()
 // favorite in every x minutes
-setInterval(favoriteTweet, 60000 * favoriteFrequency);
+setInterval(favoriteTweet, 60000 * favoriteFrequency)
 
 // STREAM API for interacting with a USER =======
 // set up a user stream
-var stream = Twitter.stream('user');
+var stream = Twitter.stream('user')
 
 // REPLY-FOLLOW BOT ============================
 
 // what to do when someone follows you?
-stream.on('follow', followed);
+stream.on('follow', followed)
 
 // ...trigger the callback
 function followed(event) {
-    console.log('Follow Event now RUNNING');
+    console.log('Follow Event now RUNNING')
     // get USER's twitter handler (screen name)
     var name = event.source.name
     var screenName = event.source.screen_name
@@ -141,13 +142,13 @@ function followed(event) {
         `Awesome @${screenName}, thanks for following! !CR`,
         `Thanks for the follow @${screenName}! !CR`,
         `Thanks for following @${screenName}! How are you today? !CR`
-    ]);
+    ])
 
     // function that replies back to every USER who followed for the first time
-    var tweetResponse = responseString();
+    var tweetResponse = responseString()
 
-    console.log(tweetResponse);
-    tweetNow(tweetResponse);
+    console.log(tweetResponse)
+    tweetNow(tweetResponse)
 
 }
 
@@ -155,26 +156,26 @@ function followed(event) {
 function tweetNow(tweetTxt) {
     var tweet = {
         status: tweetTxt
-    };
+    }
 
     // HARCODE user name in and check before RT
-    var n = tweetTxt.search(/@UserNameHere/i);
+    var n = tweetTxt.search(/@UserNameHere/i)
 
     if (n != -1) {
-        console.log('TWEET SELF! Skipped!!');
+        console.log('TWEET SELF! Skipped!!')
     } else {
         Twitter.post('statuses/update', tweet, function (err, data, response) {
             if (err) {
-                console.log('Cannot Reply to Follower. ERROR!: ' + err);
+                console.log('Cannot Reply to Follower. ERROR!: ' + err)
             } else {
-                console.log('Reply to follower. SUCCESS!');
+                console.log('Reply to follower. SUCCESS!')
             }
-        });
+        })
     }
 }
 
 // function to generate a random tweet tweet
 function ranDom(arr) {
-    var index = Math.floor(Math.random() * arr.length);
-    return arr[index];
+    var index = Math.floor(Math.random() * arr.length)
+    return arr[index]
 }
