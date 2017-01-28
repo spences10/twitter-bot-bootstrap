@@ -64,9 +64,10 @@ $ npm init
 
 This will configure the `package.json` file with your details as desired, just keep hitting return if you're happy with the defaults.
 
-Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on.
+Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on as well as sub-queries.
 
 ![](/src/images/c9-strings-config.png)
+*add query and sub-query strings*
 
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
