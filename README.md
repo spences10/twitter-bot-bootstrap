@@ -9,7 +9,7 @@ As a primer for this there are the great posts by [@amanhimself](https://twitter
 - Twitter account [Duh!]
 - Development environment with Node.js and NPM
   * c9 account
-  * Node.js 
+  * Node.js
   * NPM
 - Heroku account
 
@@ -67,7 +67,10 @@ This will configure the `package.json` file with your details as desired, just k
 Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on as well as sub-queries.
 
 ![](/src/images/c9-strings-config.png)
+
 *add query and sub-query strings*
+
+*you can also update blocked strings to block more stuff*
 
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
