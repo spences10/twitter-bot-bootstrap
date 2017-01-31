@@ -1,12 +1,8 @@
 module.exports = {
     queryString: [
-        '',
-        '',
         ''
     ],
     queryStringSubQuery: [
-        '',
-        '',
         ''
     ],
     blockedStrings: [
