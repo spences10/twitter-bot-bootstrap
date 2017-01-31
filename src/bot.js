@@ -35,7 +35,7 @@ var retweet = function() {
     paramQS += qsSq()
     var paramRT = rt()
     var params = {
-        q: paramQS,
+        q: paramQS + paramBls(),
         result_type: paramRT,
         lang: 'en'
     };
@@ -83,8 +83,9 @@ var favoriteTweet = function() {
     var paramQS = qs()
     paramQS += qsSq()
     var paramRT = rt()
+
     var params = {
-        q: paramQS,
+        q: paramQS + paramBls(),
         result_type: paramRT,
         lang: 'en'
     }
@@ -174,4 +175,14 @@ function tweetNow(tweetTxt) {
 function ranDom(arr) {
     var index = Math.floor(Math.random() * arr.length)
     return arr[index]
+}
+
+function paramBls() {
+    var ret = '',
+        arr = strings.blockedStrings,
+        i, n
+    for (i = 0, n = arr.length; i < n; i++) {
+        ret += ' -' + arr[i];
+    }
+    return ret;
 }
