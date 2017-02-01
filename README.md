@@ -1,5 +1,8 @@
 # Twitter bot bootstrap
 
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+
 This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
 
 As a primer for this there are the great posts by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
@@ -233,3 +236,12 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 
 [awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
 
+--- 
+
+[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+### License
+
+MIT License
+
+Copyright (c) 2017, Scott Spence. All rights reserved.
