@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.5",
-    "unique-random-array": "^1.0.0"
+    "unique-random-array": "^1.0.0",
+    "unirest": "^0.5.1"
   }
 }
