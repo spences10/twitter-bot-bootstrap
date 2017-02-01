@@ -3,6 +3,7 @@ var twit = require('twit')
 var ura = require('unique-random-array')
 var config = require('./config')
 var strings = require('./helpers/strings')
+var sentiment = require('./helpers/sentiment')
 
 var Twitter = new twit(config)
 
@@ -35,17 +36,35 @@ var retweet = function () {
   paramQS += qsSq()
   var paramRT = rt()
   var params = {
-    q: paramQS + paramBls(),
+    q: paramQS,
     result_type: paramRT,
     lang: 'en'
   }
+
   Twitter.get('search/tweets', params, function (err, data) {
     // if there no errors
     if (!err) {
       // grab ID of tweet to retweet
       try {
-        // try get tweet id, derp if not
+
+        // run sentiment check ==========
         var retweetId = data.statuses[0].id_str
+        var retweetText = data.statuses[0].text
+
+        // setup http call
+        var httpCall = sentiment.init()
+
+        httpCall.send('txt=' + retweetText).end(function (result) {
+          var sentim = result.body.result.sentiment
+          var confidence = parseFloat(result.body.result.confidence)
+          // try get tweet id, derp if not
+
+          // if sentiment is Negative and the confidence is above 75%
+          if (sentim == 'Negative' && confidence >= 75) {
+            console.log('RETWEET NEG NEG NEG', sentim, retweetText)
+            return
+          }
+        })
       } catch (e) {
         console.log('retweetId DERP! ', e.message, ' Query String: ' + paramQS)
         return
@@ -73,7 +92,7 @@ var retweet = function () {
 // retweet on bot start
 retweet()
 // retweet in every x minutes
-setInterval(retweet, 60000 * retweetFrequency)
+setInterval(retweet, 1000 * 60 * retweetFrequency)
 
 // FAVORITE BOT====================
 
@@ -82,9 +101,8 @@ var favoriteTweet = function () {
   var paramQS = qs()
   paramQS += qsSq()
   var paramRT = rt()
-
   var params = {
-    q: paramQS + paramBls(),
+    q: paramQS,
     result_type: paramRT,
     lang: 'en'
   }
@@ -98,6 +116,24 @@ var favoriteTweet = function () {
 
     // if random tweet exists
     if (typeof randomTweet != 'undefined') {
+
+      // run sentiment check ==========
+      // setup http call
+      var httpCall = sentiment.init()
+      var favoriteText = randomTweet['text']
+
+      httpCall.send('txt=' + favoriteText).end(function (result) {
+        var sentim = result.body.result.sentiment
+        var confidence = parseFloat(result.body.result.confidence)
+        // try get tweet id, derp if not
+
+        // if sentiment is Negative and the confidence is above 75%
+        if (sentim == 'Negative' && confidence >= 75) {
+          console.log('FAVORITE NEG NEG NEG', sentim, favoriteText)
+          return
+        }
+      })
+
       // Tell TWITTER to 'favorite'
       Twitter.post('favorites/create', {
         id: randomTweet.id_str
@@ -116,7 +152,7 @@ var favoriteTweet = function () {
 // favorite on bot start
 favoriteTweet()
 // favorite in every x minutes
-setInterval(favoriteTweet, 60000 * favoriteFrequency)
+setInterval(favoriteTweet, 1000 * 60 * favoriteFrequency)
 
 // STREAM API for interacting with a USER =======
 // set up a user stream
@@ -170,14 +206,4 @@ function tweetNow (tweetTxt) {
 function ranDom (arr) {
   var index = Math.floor(Math.random() * arr.length)
   return arr[index]
-}
-
-function paramBls () {
-  var ret = '',
-    arr = strings.blockedStrings,
-    i, n
-  for (i = 0, n = arr.length; i < n; i++) {
-    ret += ' -' + arr[i]
-  }
-  return ret
 }
