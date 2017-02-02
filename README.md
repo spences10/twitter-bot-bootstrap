@@ -52,11 +52,10 @@ The environment project tree should look something like this.
 
 ## Node dependencies
 
-Before configuring the bot we'll need to install some dependencies, from the terminal enter:
+Before configuring the bot we'll need to install the dependencies, from the terminal enter:
 
 ```
-$ npm install --save twit
-$ npm install --save unique-random-array
+$ npm install
 ```
 
 Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot, from the terminal enter.
