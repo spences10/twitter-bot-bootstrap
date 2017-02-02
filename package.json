@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "twitter bot bootstrap",
   "main": "index.js",
+   "devDependencies": {
+    "standard": "*"
+  },
   "scripts": {
     "start": "node index.js"
   },
