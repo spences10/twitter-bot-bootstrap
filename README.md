@@ -74,6 +74,8 @@ Onto the Twitter keys, now you'll need to add these to the `config.js` file and 
 
 *you can also update blocked strings to block more stuff*
 
+When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js hady tip` and not `node.jshady tip`. 
+
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
 ![](/src/images/c9-strings-config1.png)
