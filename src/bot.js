@@ -1,11 +1,11 @@
 // Dependencies =========================
-var twit = require('twit')
+var Twit = require('twit')
 var ura = require('unique-random-array')
 var config = require('./config')
 var strings = require('./helpers/strings')
 var sentiment = require('./helpers/sentiment')
 
-var Twitter = new twit(config)
+var Twitter = new Twit(config)
 
 // Frequency in minutes
 var retweetFrequency = 5
@@ -42,55 +42,50 @@ var retweet = function () {
   }
 
   Twitter.get('search/tweets', params, function (err, data) {
-    // if there no errors
+        // if there no errors
     if (!err) {
-      // grab ID of tweet to retweet
+            // grab ID of tweet to retweet
       try {
-        // run sentiment check ==========
+                // run sentiment check ==========
         var retweetId = data.statuses[0].id_str
         var retweetText = data.statuses[0].text
 
-        // setup http call
+                // setup http call
         var httpCall = sentiment.init()
 
         httpCall.send('txt=' + retweetText).end(function (result) {
           var sentim = result.body.result.sentiment
           var confidence = parseFloat(result.body.result.confidence)
-          // try get tweet id, derp if not
-
+          console.log(confidence, sentim)
           // if sentiment is Negative and the confidence is above 75%
-          if (sentim == 'Negative' && confidence >= 75) {
+          if (sentim === 'Negative' && confidence >= 75) {
             console.log('RETWEET NEG NEG NEG', sentim, retweetText)
             return
           }
         })
       } catch (e) {
-        console.log('retweetId DERP! ', e.message, ' Query String: ' + paramQS)
+        console.log('retweetId DERP!', e.message, 'Query String:', paramQS)
         return
       }
-      // Tell TWITTER to retweet
+            // Tell TWITTER to retweet
       Twitter.post('statuses/retweet/:id', {
         id: retweetId
       }, function (err, response) {
         if (response) {
-          console.log('RETWEETED!', ' Query String: ' + paramQS)
+          console.log('RETWEETED!', ' Query String:', paramQS)
         }
-        // if there was an error while tweeting
+                // if there was an error while tweeting
         if (err) {
-          console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQS)
+          console.log('RETWEET ERROR! Duplication maybe...:', err, 'Query String:', paramQS)
         }
       })
-    }
-    // if unable to Search a tweet
-    else {
-      console.log('Something went wrong while SEARCHING...')
-    }
+    } else { console.log('Something went wrong while SEARCHING...') }
   })
 }
 
 // retweet on bot start
 retweet()
-// retweet in every x minutes
+    // retweet in every x minutes
 setInterval(retweet, 1000 * 60 * retweetFrequency)
 
 // FAVORITE BOT====================
@@ -106,36 +101,35 @@ var favoriteTweet = function () {
     lang: 'en'
   }
 
-  // find the tweet
+    // find the tweet
   Twitter.get('search/tweets', params, function (err, data) {
-    // find tweets
+        // find tweets
     var tweet = data.statuses
     var randomTweet = ranDom(tweet) // pick a random tweet
 
-    // if random tweet exists
+        // if random tweet exists
     if (typeof randomTweet !== 'undefined') {
-      // run sentiment check ==========
-      // setup http call
+            // run sentiment check ==========
+            // setup http call
       var httpCall = sentiment.init()
       var favoriteText = randomTweet['text']
 
       httpCall.send('txt=' + favoriteText).end(function (result) {
         var sentim = result.body.result.sentiment
         var confidence = parseFloat(result.body.result.confidence)
-        // try get tweet id, derp if not
-
+        console.log(confidence, sentim)
         // if sentiment is Negative and the confidence is above 75%
-        if (sentim == 'Negative' && confidence >= 75) {
+        if (sentim === 'Negative' && confidence >= 75) {
           console.log('FAVORITE NEG NEG NEG', sentim, favoriteText)
           return
         }
       })
 
-      // Tell TWITTER to 'favorite'
+            // Tell TWITTER to 'favorite'
       Twitter.post('favorites/create', {
         id: randomTweet.id_str
       }, function (err, response) {
-        // if there was an error while 'favorite'
+                // if there was an error while 'favorite'
         if (err) {
           console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQS)
         } else {
@@ -148,7 +142,7 @@ var favoriteTweet = function () {
 
 // favorite on bot start
 favoriteTweet()
-// favorite in every x minutes
+    // favorite in every x minutes
 setInterval(favoriteTweet, 1000 * 60 * favoriteFrequency)
 
 // STREAM API for interacting with a USER =======
@@ -163,10 +157,10 @@ stream.on('follow', followed)
 // ...trigger the callback
 function followed (event) {
   console.log('Follow Event now RUNNING')
-  // get USER's twitter handle (screen name)
+        // get USER's twitter handle (screen name)
   var screenName = event.source.screen_name
 
-  // CREATE RANDOM RESPONSE  ============================
+    // CREATE RANDOM RESPONSE  ============================
   var responseString = rs()
   var find = 'screenName'
   var regex = new RegExp(find, 'g')
@@ -183,10 +177,10 @@ function tweetNow (tweetTxt) {
     status: tweetTxt
   }
 
-  // HARCODE user name in and check before RT
+    // HARCODE user name in and check before RT
   var n = tweetTxt.search(/@UserNameHere/i)
 
-  if (n != -1) {
+  if (n !== -1) {
     console.log('TWEET SELF! Skipped!!')
   } else {
     Twitter.post('statuses/update', tweet, function (err, data, response) {
@@ -206,9 +200,10 @@ function ranDom (arr) {
 }
 
 function paramBls () {
-  var ret = '',
-    arr = strings.blockedStrings,
-    i, n
+  var ret = ''
+  var arr = strings.blockedStrings
+  var i
+  var n
   for (i = 0, n = arr.length; i < n; i++) {
     ret += ' -' + arr[i]
   }
