@@ -36,7 +36,7 @@ var retweet = function () {
   paramQS += qsSq()
   var paramRT = rt()
   var params = {
-    q: paramQS,
+    q: paramQS + paramBls(),
     result_type: paramRT,
     lang: 'en'
   }
@@ -46,7 +46,6 @@ var retweet = function () {
     if (!err) {
       // grab ID of tweet to retweet
       try {
-
         // run sentiment check ==========
         var retweetId = data.statuses[0].id_str
         var retweetText = data.statuses[0].text
@@ -102,21 +101,19 @@ var favoriteTweet = function () {
   paramQS += qsSq()
   var paramRT = rt()
   var params = {
-    q: paramQS,
+    q: paramQS + paramBls(),
     result_type: paramRT,
     lang: 'en'
   }
 
   // find the tweet
   Twitter.get('search/tweets', params, function (err, data) {
-
     // find tweets
     var tweet = data.statuses
     var randomTweet = ranDom(tweet) // pick a random tweet
 
     // if random tweet exists
-    if (typeof randomTweet != 'undefined') {
-
+    if (typeof randomTweet !== 'undefined') {
       // run sentiment check ==========
       // setup http call
       var httpCall = sentiment.init()
@@ -141,7 +138,7 @@ var favoriteTweet = function () {
         // if there was an error while 'favorite'
         if (err) {
           console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQS)
-        }else {
+        } else {
           console.log('FAVORITED... Success!!!', ' Query String: ' + paramQS)
         }
       })
@@ -191,11 +188,11 @@ function tweetNow (tweetTxt) {
 
   if (n != -1) {
     console.log('TWEET SELF! Skipped!!')
-  }else {
+  } else {
     Twitter.post('statuses/update', tweet, function (err, data, response) {
       if (err) {
         console.log('Cannot Reply to Follower. ERROR!: ' + err)
-      }else {
+      } else {
         console.log('Reply to follower. SUCCESS!')
       }
     })
@@ -206,4 +203,14 @@ function tweetNow (tweetTxt) {
 function ranDom (arr) {
   var index = Math.floor(Math.random() * arr.length)
   return arr[index]
+}
+
+function paramBls () {
+  var ret = '',
+    arr = strings.blockedStrings,
+    i, n
+  for (i = 0, n = arr.length; i < n; i++) {
+    ret += ' -' + arr[i]
+  }
+  return ret
 }
