@@ -1,5 +1,8 @@
 # Twitter bot bootstrap
 
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+
 This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
 
 As a primer for this there are the great posts by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
@@ -9,7 +12,7 @@ As a primer for this there are the great posts by [@amanhimself](https://twitter
 - Twitter account [Duh!]
 - Development environment with Node.js and NPM
   * c9 account
-  * Node.js 
+  * Node.js
   * NPM
 - Heroku account
 
@@ -49,11 +52,10 @@ The environment project tree should look something like this.
 
 ## Node dependencies
 
-Before configuring the bot we'll need to install some dependencies, from the terminal enter:
+Before configuring the bot we'll need to install the dependencies, from the terminal enter:
 
 ```
-$ npm install --save twit
-$ npm install --save unique-random-array
+$ npm install
 ```
 
 Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot, from the terminal enter.
@@ -67,7 +69,12 @@ This will configure the `package.json` file with your details as desired, just k
 Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on as well as sub-queries.
 
 ![](/src/images/c9-strings-config.png)
+
 *add query and sub-query strings*
+
+*you can also update blocked strings to block more stuff*
+
+When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js hady tip` and not `node.jshady tip`. 
 
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
@@ -230,3 +237,12 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 
 [awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
 
+--- 
+
+[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+### License
+
+MIT License
+
+Copyright (c) 2017, Scott Spence. All rights reserved.

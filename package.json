@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "twitter bot bootstrap",
   "main": "index.js",
+   "devDependencies": {
+    "standard": "*"
+  },
   "scripts": {
     "start": "node index.js"
   },
@@ -10,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.5",
-    "unique-random-array": "^1.0.0"
+    "unique-random-array": "^1.0.0",
+    "unirest": "^0.5.1"
   }
 }
