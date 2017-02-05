@@ -154,13 +154,7 @@ All good? Cool! :sunglasses:
 
 ## Heroku variables
 
-Now that we have our bot on Heroku we can use environment variables to store our Twitter keys so that if in the future we want to add our code to GitHub we don't have to exclude the `.env` file or add our keys publicly.
-
-If you take a look at the `.env` file of this project, you are going to delete this line:
-
-```
-require('dotenv').config();
-```
+Now that we have our bot on Heroku we need to add environment variables to store our Twitter keys. This is because the `.env` file where we stored our keys is listed in the `.gitignore` file, which tells git not to upload that file to Heroku. It also makes it so if in the future we want to add our code to GitHub we don't have to worry about the `.env` file making our keys public, because the file will automatically be ignored.
 
 All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys from the `.env` file. Click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
 
@@ -171,9 +165,13 @@ ACCESS_TOKEN
 ACCESS_TOKEN_SECRET
 ```
 
-Once you have the Heroku vars set up then you can delete the `.env` file on your development environment and you're ready to deploy to Heroku again without your Twitter keys.
+Once you have the Heroku vars set up, take a look at the `config.js` file of this project. You are going to delete this line:
 
-Your console commands should look something like this:
+```
+require('dotenv').config();
+```
+
+You're now ready to deploy to Heroku again. Your console commands should look something like this:
 
 ```
 $ git add .
