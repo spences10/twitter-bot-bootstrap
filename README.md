@@ -1,11 +1,11 @@
 # Twitter bot bootstrap
 
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) 
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
 
-This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
+This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library. The bot will favorite and retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
 
-As a primer for this there are the great posts by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
+As a primer for this, there is a great post by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot. This is an expansion on that with further detail on configuration on Heroku.
 
 ## What you'll need
 
@@ -20,13 +20,13 @@ As a primer for this there are the great posts by [@amanhimself](https://twitter
 
 Set up an application on the Twitter account you want to favorite and retweet from via: [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new)
 
-As an example I'll configure the old [@DroidScott](twitter.com/droidscott) twitter account I have so you can follow along.
+As an example, I'll configure the old [@DroidScott](twitter.com/droidscott) twitter account I have so you can follow along.
 
 Straight forward enough for the twitter application, just make sure you add your phone number to your Twitter account before clicking the **Create your Twitter application** button.
 
 ![](/src/images/twitter-application-setup.png)
 
-You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available you'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them you'll need them when setting up the bot.
+You should now be in the 'Application Management' section where you will need to take note of your keys. You should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available. You'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them as you'll need them when setting up the bot.
 
 ## Setup development environment
 
@@ -36,7 +36,7 @@ For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and
 
 ## Set up the bot
 
-In the project tree delete the example project files of `client`, `package.json`, `README.md` and `server.js` you'll not need them, you can leve them there if you desire.
+In the project tree delete the example project files of `client`, `package.json`, `README.md` and `server.js`. You won't need them, but you can leave them there if you desire.
 
 In your new Node.js c9 environment go to the terminal and enter:
 
@@ -46,7 +46,7 @@ $ git clone https://github.com/spences10/twitter-bot-bootstrap
 
 ## Project structure
 
-The environment project tree should look something like this.
+The environment project tree should look something like this:
 
 ![](/src/images/project-structure.png)
 
@@ -58,15 +58,23 @@ Before configuring the bot we'll need to install the dependencies, from the term
 $ npm install
 ```
 
-Then cd into your new folder `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` form here you can configure the bot, from the terminal enter.
+Then cd into your new folder. `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ `. From here you can configure the bot. From the terminal enter:
 
 ```
 $ npm init
 ```
 
-This will configure the `package.json` file with your details as desired, just keep hitting return if you're happy with the defaults.
+This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on as well as sub-queries.
+Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
+```
+CONSUMER_KEY=Fw***********P9
+CONSUMER_SECRET=TD************Cq
+ACCESS_TOKEN=31**************UC
+ACCESS_TOKEN_SECRET=r0************S2
+```
+
+Then you can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
 
 ![](/src/images/c9-strings-config.png)
 
@@ -74,15 +82,15 @@ Onto the Twitter keys, now you'll need to add these to the `config.js` file and 
 
 *you can also update blocked strings to block more stuff*
 
-When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js hady tip` and not `node.jshady tip`. 
+When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js handy tip` and not `node.jshandy tip`.
 
-Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
+Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file. This will ensure your bot doesn't reply to itself when it has been followed by a user.
 
 ![](/src/images/c9-strings-config1.png)
 
 This step isn't strictly necessary if this account isn’t going to be following any users.
 
-That should be it, go to the terminal and enter `npm start` you should get some output:
+That should be it. Go to the terminal, enter `npm start` and you should get some output:
 
 ![](/src/images/bot-output.png)
 
@@ -92,23 +100,23 @@ Check the Twitter account:
 
 ## Heroku
 
-Cool, now we have a bot that we can test on our dev environment but we can't leave it there, we'll need to deploy it to Heroku.
+Cool, now we have a bot that we can test on our dev environment, but we can't leave it there. We'll need to deploy it to Heroku.
 
-If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
+If you haven't done so already, set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box on the top right of your dashboard. On the next screen, name the app if you want and then click **Create App**.
 
 ![](/src/images/heroku-create-new-app.png)
 
-You'll be presented with your app dashboard and instructions for the deployment method
+You'll be presented with your app dashboard and instructions for the deployment method.
 
 ![](/src/images/heroku-deploy.png)
 
-Your app name should be displayed on the top of your dashboard, you'll need this when logging in with the Heroku CLI.
+Your app name should be displayed on the top of your dashboard. You'll need this when logging in with the Heroku CLI.
 
 ![](/src/images/heroku-app-name.png)
 
 ## Heroku CLI
 
-We're going to deploy initially via the Heroku Command Line Interface *CLI*
+We're going to deploy initially via the Heroku Command Line Interface (*CLI*).
 
 On your c9 environment terminal, log into Heroku [it should be installed by default]
 
@@ -146,20 +154,9 @@ All good? Cool! :sunglasses:
 
 ## Heroku variables
 
-Now that we have our bot on Heroku we can use environment variables to store our Twitter keys so that if in the future we want to add our code to GitHub we don't have to exclude the `config.js` file or add our keys publicly.
+Now that we have our bot on Heroku we need to add environment variables to store our Twitter keys. This is because the `.env` file where we stored our keys is listed in the `.gitignore` file, which tells git not to upload that file to Heroku. It also makes it so if in the future we want to add our code to GitHub we don't have to worry about the `.env` file making our keys public, because the file will automatically be ignored.
 
-If you take a look at the `config.js` file of this project you'll see there's several lines commented output:
-
-```
-module.exports = {
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-};
-```
-
-All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys, click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
+All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys from the `.env` file. Click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
 
 ```
 CONSUMER_KEY
@@ -168,9 +165,13 @@ ACCESS_TOKEN
 ACCESS_TOKEN_SECRET
 ```
 
-Once you have the Heroku vars set up then you can un-comment the `module.exports` section in the `config.js` file on your development environment and you're ready to deploy to Heroku again without your Twitter keys.
+Once you have the Heroku vars set up, take a look at the `config.js` file of this project. You are going to delete this line:
 
-Your console commands should look something like this:
+```
+require('dotenv').config();
+```
+
+You're now ready to deploy to Heroku again. Your console commands should look something like this:
 
 ```
 $ git add .
@@ -190,7 +191,7 @@ You should now have a bot you can leave to do its thing forever more, or until y
 
 You can also deploy your app by connecting to GitHub and deploy automatically to Heroku each time your master branch is updated on GitHub, this is straight forward enough.
 
-Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method if you have connected your GitHub account to your Heroku account then you can search for the repository so if you forked this repo then you can just enter ` twitter-bot-bootstrap` and **Search** you can then click the **Connect** button, you can then auto deploy from GitHub.
+Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method. If you have connected your GitHub account to your Heroku account then you can search for the repository. If you forked this repo, then you can just enter `twitter-bot-bootstrap` and **Search**. You can then click the **Connect** button and now you can auto deploy from GitHub!
 
 ![](/src/images/heroku-connect-github.png)
 
@@ -201,20 +202,20 @@ What do you mean it crashed!?
 
 ![](/src/images/heroku-crash.png)
 
-Ok, I found that sometimes the `worker` is set as `web` and it crashes out try setting the `worker` again:
+Ok, I found that sometimes the `worker` is set as `web` and it crashes out. Try setting the `worker` again:
 
 ```
 $ heroku ps:scale worker=0
 $ heroku ps:scale worker=1
 ```
 
-Other usefule Heroku commands I use:
+Other useful Heroku commands I use:
 
 ```
 $ heroku restart
 ```
 
-By default you can only push your master branch if you are working on a development branch i.e. `dev` branch and you want to test on Heroku then you can use:
+By default you can only push your master branch if you are working on a development branch i.e. `dev` branch. If you want to test on Heroku, then you can use:
 
 ```
 $ git push heroku dev:master
@@ -223,7 +224,7 @@ $ git push heroku dev:master
 ## Contributing
 Please fork this repository and contribute back using pull requests.
 
-Any contributions, large or small, major features, bugfixes and integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
+Any contributions, large or small, major features, bug fixes and integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
 
 #### Links
 
@@ -237,7 +238,7 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 
 [awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
 
---- 
+---
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
