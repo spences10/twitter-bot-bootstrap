@@ -52,13 +52,13 @@ The environment project tree should look something like this:
 
 ## Node dependencies
 
-Before configuring the bot we'll need to install the dependencies, from the terminal enter:
+Before configuring the bot we'll need to install the dependencies, cd into the project folder with `cd tw*` this will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` from the terminal enter:
 
 ```
 $ npm install
 ```
 
-Then cd into your new folder. `cd tw*` will move you to `:~/workspace/twitter-bot-bootstrap (master) $ `. From here you can configure the bot. From the terminal enter:
+This will install all the dependencies listed in the `package.json` file. Now you can configure the bot. From the terminal enter:
 
 ```
 $ npm init
@@ -67,6 +67,7 @@ $ npm init
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
 Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
+
 ```
 CONSUMER_KEY=Fw***********P9
 CONSUMER_SECRET=TD************Cq
