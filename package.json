@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "twitter bot bootstrap",
   "main": "index.js",
-   "devDependencies": {
-    "standard": "*"
+  "devDependencies": {
+    "standard": "^8.6.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "standard && node index.js"
   },
   "author": "",
   "license": "MIT",
