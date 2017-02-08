@@ -56,8 +56,28 @@ Before configuring the bot we'll need to install the dependencies, cd into the p
 ```
 $ npm install
 ```
+This will install all the dependencies listed in the `package.json` file.
 
-This will install all the dependencies listed in the `package.json` file. Now you can configure the bot. From the terminal enter:
+If you get an errors then I suggest installing the dependencies one by one from the `package.json` file with the same command and the package name at the end:
+
+Here is an example of the `dependencies` in the `package,json` file:
+
+```
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "twit": "^2.2.5",
+    "unique-random-array": "^1.0.0",
+    "unirest": "^0.5.1"
+  }
+```
+
+The npm command to install them all:
+
+```
+$ npm install --save dotenv twit unique-random-array unirest
+```
+
+Now you can configure the bot. From the terminal enter:
 
 ```
 $ npm init
@@ -67,11 +87,14 @@ This will configure the `package.json` file with your details as desired. Just k
 
 Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
 
+The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
+
 ```
 CONSUMER_KEY=Fw***********P9
 CONSUMER_SECRET=TD************Cq
 ACCESS_TOKEN=31**************UC
 ACCESS_TOKEN_SECRET=r0************S2
+SENTIMENT_KEY=Gj************lF
 ```
 
 Then you can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
