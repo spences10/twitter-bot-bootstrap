@@ -89,6 +89,12 @@ Now you'll need to add your Twitter keys to the `.env` file. Just input the keys
 
 The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
 
+Take a look at the gif, click the link, sign up for or sing into `mashape`, click on `node`in the right hand panel and select out your API key, it will be in the space highlighted `<required>` in the gif.
+
+![](/src/images/sentiment-api-key.gif)
+
+Add your API key to the `.env` file along with your Twitter API keys :key:
+
 ```
 CONSUMER_KEY=Fw***********P9
 CONSUMER_SECRET=TD************Cq
@@ -97,12 +103,11 @@ ACCESS_TOKEN_SECRET=r0************S2
 SENTIMENT_KEY=Gj************lF
 ```
 
-Then you can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
+You can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
 
 ![](/src/images/c9-strings-config.png)
 
 *add query and sub-query strings*
-
 *you can also update blocked strings to block more stuff*
 
 When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js handy tip` and not `node.jshandy tip`.
