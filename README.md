@@ -2,9 +2,32 @@
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
 
+<!-- TOC -->
+
+- [Twitter bot bootstrap](#twitter-bot-bootstrap)
+  - [What you'll need](#what-youll-need)
+  - [Setup twitter](#setup-twitter)
+  - [Setup development environment](#setup-development-environment)
+  - [Set up the bot](#set-up-the-bot)
+  - [Project structure](#project-structure)
+  - [Node dependencies](#node-dependencies)
+  - [Heroku](#heroku)
+  - [Heroku CLI](#heroku-cli)
+  - [Heroku variables](#heroku-variables)
+  - [Heroku deployment via GitHub](#heroku-deployment-via-github)
+  - [Heroku troubleshooting](#heroku-troubleshooting)
+  - [Handy tip](#handy-tip)
+  - [Contributing](#contributing)
+      - [Links](#links)
+    - [License](#license)
+
+<!-- /TOC -->
+
 This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library. The bot will favorite and retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
 
 As a primer for this, there is a great post by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot. This is an expansion on that with further detail on configuration on Heroku.
+
+Before starting the clock you'll need to set up some accounts if you don't have them already.
 
 ## What you'll need
 
@@ -30,6 +53,8 @@ You should now be in the 'Application Management' section where you will need to
 ## Setup development environment
 
 For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and running in minutes with one of the pre made Node.js environments.
+
+Note that if you choose to use Heroku and/or Cloud9 IDE in building this (like I do in this guide) in some regions you will be prompted to give a credit card number to create these accounts.
 
 ![](/src/images/c9-node-env.png)
 
@@ -91,7 +116,7 @@ Now you'll need to add your Twitter keys to the `.env` file. Just input the keys
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
-![](/src/images/c9-hidden-files-check.png)
+![](/src/images/c9-hidden-files-check.gif)
 
 The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
 
@@ -101,12 +126,19 @@ Take a look at the gif, click the link, sign up for or sing into `mashape`, clic
 
 Add your API key to the `.env` file along with your Twitter API keys :key:
 
+Here you should add your Twitter account name, and how often you want the bot to run the retweet and favorite functions in minutes.
+
+>NOTE none of the `.env` items have quotes `''` round them. 
+
 ```
 CONSUMER_KEY=Fw***********P9
 CONSUMER_SECRET=TD************Cq
 ACCESS_TOKEN=31**************UC
 ACCESS_TOKEN_SECRET=r0************S2
 SENTIMENT_KEY=Gj************lF
+TWITTER_USERNAME=DroidScott
+TWITTER_RETWEET_RATE=5
+TWITTER_FAVORITE_RATE=5
 ```
 
 You can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
@@ -117,12 +149,6 @@ You can then add some keywords into the `strings.js` file for what you want to s
 *you can also update blocked strings to block more stuff*
 
 When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js handy tip` and not `node.jshandy tip`.
-
-Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file. This will ensure your bot doesn't reply to itself when it has been followed by a user.
-
-![](/src/images/c9-strings-config1.png)
-
-This step isn't strictly necessary if this account isn’t going to be following any users.
 
 That should be it. Go to the terminal, enter `npm start` and you should get some output:
 
@@ -259,6 +285,15 @@ By default you can only push your master branch if you are working on a developm
 ```
 $ git push heroku dev:master
 ```
+
+## Handy tip
+If you want to add this to your own GitHub repo and don't want to share your API keys :key: with the world then you should turn off tracking on the `.env` file. From the terminal enter this git command:
+
+```
+$ git update-index --assume-unchanged .env
+```
+
+I have added my most used git command I use in this [gist](https://gist.github.com/spences10/5c492e197e95158809a83650ff97fc3a)
 
 ## Contributing
 Please fork this repository and contribute back using pull requests.
