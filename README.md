@@ -256,7 +256,6 @@ Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment meth
 
 ![](/src/images/heroku-connect-github.png)
 
-
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
@@ -272,7 +271,7 @@ $ heroku ps:scale worker=1
 
 If that still crashes out then try setting the `Resources` on the Heroku dashboard, I found if you toggle between the `web`, `heroku` and `worker` it usually settles down. Basically you need to be set to the **`worker`** Dyno this is what causes the `Error R10 (Boot timeout)` crashes because it's trying to use one of the other resources when it should be using the **`worker`** Dyno.
 
-![](/src/images/heroku-app-resources.png)
+![](/src/images/heroku-app-resources.gif)
 
 Other useful Heroku commands I use:
 
