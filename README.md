@@ -8,7 +8,7 @@ As a primer for this, there is a great post by [@amanhimself](https://twitter.co
 
 ## What you'll need
 
-- Twitter account [Duh!]
+- Twitter account
 - Development environment with Node.js and NPM
   * c9 account
   * Node.js
@@ -77,6 +77,8 @@ The npm command to install them all:
 $ npm install --save dotenv twit unique-random-array unirest
 ```
 
+If you get any `WARN` messages such as `npm WARN package.json twitter-bot@1.0.0 No repository field` this will not break the bot so it's safe to ignore.
+
 Now you can configure the bot. From the terminal enter:
 
 ```
@@ -85,7 +87,11 @@ $ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
+Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
+
+![](/src/images/c9-hidden-files-check.png)
+
+If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. 
 
 The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
 
