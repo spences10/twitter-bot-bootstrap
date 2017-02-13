@@ -244,6 +244,8 @@ $ heroku ps:scale worker=0
 $ heroku ps:scale worker=1
 ```
 
+If that still crashes out then try setting the `Resources` on the Heroku dashboard, I found if you toggle between the `web`, `heroku` and `worker` it usually settles down. Basically you need to be set to the **`worker`** Dyno this is what causes the `Error R10 (Boot timeout)` crashes.
+
 Other useful Heroku commands I use:
 
 ```
