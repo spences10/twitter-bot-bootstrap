@@ -1,8 +1,11 @@
 /** TWITTER APP CONFIGURATION
+ * Add your keys to the `.env` file
  * consumer_key
  * consumer_secret
  * access_token
  * access_token_secret
+ * Add your account user username
+ * Add your sentiment API key
  */
 require('dotenv').config()
 
@@ -16,5 +19,5 @@ module.exports = {
     retweet: process.env.TWITTER_RETWEET_RATE,
     favorite: process.env.TWITTER_FAVORITE_RATE
   },
-  sentiment: process.env.SENTIMENT
+  sentiment: process.env.SENTIMENT_KEY
 }
