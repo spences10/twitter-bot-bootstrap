@@ -87,11 +87,11 @@ $ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
+Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. 
+
+If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
 ![](/src/images/c9-hidden-files-check.png)
-
-If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. 
 
 The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
 
@@ -197,6 +197,7 @@ CONSUMER_KEY
 CONSUMER_SECRET
 ACCESS_TOKEN
 ACCESS_TOKEN_SECRET
+SENTIMENT_KEY
 ```
 
 Once you have the Heroku vars set up, take a look at the `config.js` file of this project. You are going to delete this line:
@@ -242,6 +243,8 @@ Ok, I found that sometimes the `worker` is set as `web` and it crashes out. Try 
 $ heroku ps:scale worker=0
 $ heroku ps:scale worker=1
 ```
+
+If that still crashes out then try setting the `Resources` on the Heroku dashboard, I found if you toggle between the `web`, `heroku` and `worker` it usually settles down. Basically you need to be set to the **`worker`** Dyno this is what causes the `Error R10 (Boot timeout)` crashes.
 
 Other useful Heroku commands I use:
 
