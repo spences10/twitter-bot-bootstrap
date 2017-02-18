@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 // Dependencies =========================
 const Twit = require('twit')
 const ura = require('unique-random-array')
