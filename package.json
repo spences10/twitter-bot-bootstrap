@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "standard && node index.js"
+    "test": "standard && node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "",
   "license": "MIT",
@@ -16,6 +18,8 @@
     "dotenv": "^4.0.0",
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0",
-    "unirest": "^0.5.1"
-  }
+    "unirest": "^0.5.1",
+    "snyk": "^1.25.1"
+  },
+  "snyk": true
 }
