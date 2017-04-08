@@ -1,6 +1,6 @@
 {
-  "name": "twitter-bot",
-  "version": "1.0.0",
+  "name": "twitter-bot-bootstrap",
+  "version": "2.0.0",
   "description": "twitter bot bootstrap",
   "main": "index.js",
   "devDependencies": {
