@@ -10,15 +10,16 @@
     "babel-register": "^6.24.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
+    "jest-cli": "^19.0.2",
     "nodemon": "^1.11.0",
     "semantic-release": "^6.3.2"
   },
   "scripts": {
     "start": "nodemon index.js",
-    "test": "standard && node index.js",
+    "test": "snyk test && jest --coverage",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "dev": "nodemon --exec babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/index.js jest --coverage",
     "build": "babel src --out-dir dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git-cz"
@@ -37,7 +38,9 @@
     "type": "git",
     "url": "https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "czConfig":{
-     "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
