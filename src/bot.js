@@ -3,7 +3,7 @@ import config from './config'
 
 let Twitter = new Twit(config.twitter)
 
-function tweetNow(text) {
+export const tweetNow = (text) => {
   let tweet = {status: text}
 
   Twitter.post('statuses/update', tweet, (err, data, response) => {
@@ -12,4 +12,4 @@ function tweetNow(text) {
   })
 }
 
-tweetNow('hello world!')
+tweetNow('hello')
