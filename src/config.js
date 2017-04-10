@@ -12,10 +12,10 @@ require('dotenv').config()
 module.exports = {
   twitter: {
     username: process.env.TWITTER_USERNAME,
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    accessToken: process.env.TWITTER_ACCESS_TOKEN,
-    accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
     retweet: process.env.TWITTER_RETWEET_RATE,
     favorite: process.env.TWITTER_FAVORITE_RATE
   },

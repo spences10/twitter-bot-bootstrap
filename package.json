@@ -10,7 +10,7 @@
     "standard": "^8.6.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "test": "standard && node index.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
