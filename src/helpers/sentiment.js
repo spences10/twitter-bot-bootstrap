@@ -4,7 +4,7 @@ const unirest = require('unirest')
   Get a new API key at https://market.mashape.com/vivekn/sentiment-3
 */
 
-var sentiment = {}
+const sentiment = {}
 
 sentiment.init = function () {
   return unirest.post('https://community-sentiment.p.mashape.com/text/')
