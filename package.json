@@ -5,20 +5,25 @@
   "main": "index.js",
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "nodemon": "^1.11.0",
     "semantic-release": "^6.3.2"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon index.js",
     "test": "standard && node index.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "dev": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
   },
-  "author": "",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -31,5 +36,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/spences10/twitter-bot-bootstrap.git"
+  },
+  "czConfig":{
+     "path": "node_modules/cz-conventional-changelog"
   }
 }

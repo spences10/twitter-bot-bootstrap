@@ -1,5 +1,6 @@
 import Twit from 'twit'
 import config from './config'
+import { getFunName } from './helpers/helpers'
 
 let Twitter = new Twit(config.twitter)
 
@@ -12,4 +13,4 @@ export const tweetNow = (text) => {
   })
 }
 
-tweetNow('hello')
+tweetNow(getFunName())
