@@ -14,3 +14,5 @@ export const tweetNow = (text) => {
 }
 
 tweetNow(getFunName())
+
+setInterval(() => tweetNow(), 100)
