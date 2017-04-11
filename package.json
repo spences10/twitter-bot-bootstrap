@@ -3,6 +3,13 @@
   "version": "0.0.0-development",
   "description": "twitter bot bootstrap",
   "main": "index.js",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "snyk": "^1.25.1",
+    "twitter": "^1.7.0",
+    "unique-random-array": "^1.0.0",
+    "unirest": "^0.5.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
@@ -32,13 +39,6 @@
   },
   "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
-  "dependencies": {
-    "dotenv": "^4.0.0",
-    "snyk": "^1.25.1",
-    "twit": "^2.2.5",
-    "unique-random-array": "^1.0.0",
-    "unirest": "^0.5.1"
-  },
   "snyk": true,
   "repository": {
     "type": "git",

@@ -1,18 +1,28 @@
-import Twit from 'twit'
+/**
+ * Twitter bot to do the following...
+ * like tweets that match query
+ * retweet tweets that match query
+ * reply on user follow
+ */
+
+import Twiter from 'twitter'
 import config from './config'
-import { getFunName } from './helpers/helpers'
+import {
+  getFunName
+} from './helpers/helpers'
 
-const Twitter = new Twit(config.twitter)
+const client = new Twiter(config.twitter)
 
-export const tweetNow = (text) => {
-  const tweet = { status: text }
-
-  Twitter.post('statuses/update', tweet, (err, data, response) => {
-    if (err) { console.log('ERROR: ', err) }
-    console.log('SUCCESS: Replied to Follower')
-  })
+const tweetNow = async (txt) => {
+  try {
+    await client.post('statuses/update', { status: txt })
+    console.log(txt)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 tweetNow(getFunName())
 
-setInterval(() => tweetNow(), 100)
+setInterval(() => tweetNow(getFunName()), 1000 * 60 * 60 * 2)
+
