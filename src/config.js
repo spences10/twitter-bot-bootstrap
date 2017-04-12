@@ -20,5 +20,9 @@ module.exports = {
     favorite: process.env.TWITTER_FAVORITE_RATE
   },
   sentiment: process.env.SENTIMENT_KEY,
-  query_string: process.env.QUERY_STRING
+  params: {
+    query_string: process.env.QUERY_STRING,
+    result_type: process.env.RESULT_TYPE,
+    lang: process.env.LANG
+  }
 }
