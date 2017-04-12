@@ -31,10 +31,10 @@
     "start": "nodemon index.js",
     "test": "snyk test && jest --coverage",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run build npm run snyk-protect",
+    "prepublish": "yarn run build yarn run snyk-protect",
     "dev": "nodemon --exec babel-node src/index.js jest --coverage",
     "build": "babel src -d build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
     "commit": "git-cz"
   },
   "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
