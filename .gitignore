@@ -38,3 +38,9 @@ jspm_packages
 
 # Other files
 *.env
+
+# testing
+/coverage
+
+# production
+/build
