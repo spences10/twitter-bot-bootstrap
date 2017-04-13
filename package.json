@@ -4,17 +4,18 @@
   "description": "twitter bot bootstrap",
   "main": "index.js",
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
     "dotenv": "^4.0.0",
+    "nodemon": "^1.11.0",
     "snyk": "^1.25.1",
     "twitter": "^1.7.0",
     "unique-random-array": "^1.0.0",
     "unirest": "^0.5.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.24.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.19.0",
@@ -24,15 +25,14 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "jest-cli": "^19.0.2",
-    "nodemon": "^1.11.0",
     "semantic-release": "^6.3.2"
   },
   "scripts": {
     "start": "nodemon index.js",
     "test": "snyk test && jest --coverage",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn run build yarn run snyk-protect",
-    "dev": "nodemon --exec babel-node src/index.js jest --coverage",
+    "prepublish": "yarn build && yarn snyk-protect",
+    "dev": "nodemon --exec babel-node index.js jest --coverage",
     "build": "babel src -d build",
     "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
     "commit": "git-cz"

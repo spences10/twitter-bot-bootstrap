@@ -23,4 +23,4 @@ const searchResult = async () => {
   console.log(rando(res.statuses).id_str)
 }
 
-export default searchResult()
+export default searchResult
