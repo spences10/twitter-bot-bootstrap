@@ -23,10 +23,8 @@ const tweetNow = async (txt) => {
   }
 }
 
-
 tweetNow(getFunName())
-setInterval(() => tweetNow(getFunName()), 1000 * 60 * 2)
-
+setInterval(() => tweetNow(getFunName()), 1000 * 60 * 90)
 
 searchResult()
 setInterval(() => searchResult(), 1000 * 5)

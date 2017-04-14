@@ -1,4 +1,4 @@
-const unirest = require('unirest')
+import unirest from 'unirest'
 
 /*
   Get a new API key at https://market.mashape.com/vivekn/sentiment-3
@@ -13,4 +13,4 @@ sentiment.init = function () {
   .header('Accept', 'application/json')
 }
 
-module.exports = sentiment
+export default sentiment

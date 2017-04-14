@@ -1,6 +1,6 @@
 # Twitter bot bootstrap
 
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
 
 <!-- TOC -->
 
@@ -22,6 +22,39 @@
     - [License](#license)
 
 <!-- /TOC -->
+
+Set up your own twitter bot in minutes
+
+use now.sh
+
+configuration:
+
+Here is an example `.env` file:
+
+```shell
+TWITTER_CONSUMER_KEY=xxxxxxxxxxxxxxxxxxxxdMhxg
+TWITTER_CONSUMER_SECRET=xxxxxxxxxxkFNNj1H107PFv1mvWwEM6CZH0fjymV
+TWITTER_ACCESS_TOKEN=xxxxxxxxx-xxxxxxxxxxXb7vAyNpSecKpi90bFhdsGG2N7iII
+TWITTER_ACCESS_TOKEN_SECRET=xxxxxxxxxxZAU8wNKAPU8Qz2c0PhOo43cGO
+
+SENTIMENT_KEY=xxxxxxxxxx7Ev80Pacp1h0c2kjsnMVVrG5m9MNlF
+
+QUERY_STRING=#someTestHashTag OR trump
+RESULT_TYPE=mixed
+LANG=en
+
+TWITTER_USERNAME=DroidScott
+TWITTER_RETWEET_RATE=0.1
+TWITTER_FAVORITE_RATE=0.1
+
+BLACKLIST_USERNAMES=[
+  _100DaysOfCode,
+  heroes_bot
+]
+
+```
+
+============================== OLD VERSION ==============================
 
 This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library. The bot will favorite and retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
 
@@ -112,13 +145,13 @@ $ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. 
+Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
 ![](/src/images/c9-hidden-files-check.gif)
 
-The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
+The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`
 
 Take a look at the gif, click the link, sign up for or sing into `mashape`, click on `node`in the right hand panel and select out your API key, it will be in the space highlighted `<required>` in the gif.
 
@@ -128,7 +161,7 @@ Add your API key to the `.env` file along with your Twitter API keys :key:
 
 Here you should add your Twitter account name, and how often you want the bot to run the retweet and favorite functions in minutes.
 
->NOTE none of the `.env` items have quotes `''` round them. 
+>NOTE none of the `.env` items have quotes `''` round them.
 
 ```
 CONSUMER_KEY=Fw***********P9

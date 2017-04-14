@@ -2,7 +2,7 @@
   "name": "twitter-bot-bootstrap",
   "version": "0.0.0-development",
   "description": "twitter bot bootstrap",
-  "main": "index.js",
+  "main": "build/index.js",
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.23.0",
