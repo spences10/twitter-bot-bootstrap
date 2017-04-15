@@ -11,6 +11,7 @@ import {
   getFunName
 } from './helpers/helpers'
 import searchResult from './helpers/search'
+import retweet from './helpers/retweet'
 
 const client = new Twiter(config.twitter)
 
@@ -23,8 +24,11 @@ const tweetNow = async (txt) => {
   }
 }
 
-tweetNow(getFunName())
-setInterval(() => tweetNow(getFunName()), 1000 * 60 * 90)
+// tweetNow(getFunName())
+// setInterval(() => tweetNow(getFunName()), 1000 * 60 * 90)
 
-searchResult()
-setInterval(() => searchResult(), 1000 * 5)
+// searchResult()
+// setInterval(() => searchResult(), 1000 * 5)
+
+retweet()
+setInterval(() => retweet(), 1000 * 5)

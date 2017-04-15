@@ -7,5 +7,5 @@ export function getFunName() {
 
   const nouns = ['women', 'men', 'children', 'teeth', 'feet', 'people', 'leaves', 'mice', 'geese', 'halves', 'knives', 'wives', 'lives', 'elves', 'loaves', 'potatoes', 'tomatoes', 'cacti', 'foci', 'fungi', 'nuclei', 'syllabuses', 'analyses', 'diagnoses', 'oases', 'theses', 'crises', 'phenomena', 'criteria', 'data']
 
-  return `${rando(adjectives)} ${rando(adjectives)} ${rando(nouns)} with ${rando(nouns)}`
+  return `All I have to say is ${rando(adjectives)} ${rando(adjectives)} ${rando(nouns)} with ${rando(nouns)}`
 }
