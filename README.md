@@ -1,6 +1,6 @@
 # Twitter bot bootstrap
 
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT) [![HitCount](https://hitt.herokuapp.com/spences10/twitter-bot-bootstrap.svg)](https://github.com/spences10/twitter-bot-bootstrap)
 
 <!-- TOC -->
 
