@@ -19,7 +19,7 @@
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0",
     "unirest": "^0.5.1",
-    "snyk": "1.29.0"
+    "snyk": "^1.30.0"
   },
   "snyk": true
 }
