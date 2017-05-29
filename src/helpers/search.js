@@ -19,7 +19,7 @@ const searchResult = async () => {
   // console.log(JSON.stringify(res))
   // console.log(rando(res.statuses).user.screen_name)
   // console.log(rando(res.statuses).text)
-  console.log(rando(res.statuses).id_str)
+  // console.log(rando(res.statuses).id_str)
   return rando(res.statuses).id_str
 }
 

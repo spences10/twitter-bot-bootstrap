@@ -11,7 +11,7 @@ import {
   getFunName
 } from './helpers/helpers'
 import searchResult from './helpers/search'
-import retweet from './helpers/retweet'
+// import retweet from './helpers/retweet'
 
 const client = new Twiter(config.twitter)
 
@@ -24,11 +24,33 @@ const tweetNow = async (txt) => {
   }
 }
 
+// const retweet = async () => {
+//   let res
+//   try {
+//     res = await client.post(`statuses/retweet/:id${searchResult()}`)
+//   } catch (err) {
+//     console.log('ERR :', err)
+//   }
+//   console.log('RES :', res)
+// }
+
+const tweetId = searchResult()
+
+const retweet = () => {
+  client.post(`statuses/retweet/${tweetId}`, (error, tweet, response) => {
+    console.log(tweetId)
+    if (error) {
+      console.log(tweet)
+    }
+  })
+}
+
+
 // tweetNow(getFunName())
 // setInterval(() => tweetNow(getFunName()), 1000 * 60 * 90)
 
-// searchResult()
-// setInterval(() => searchResult(), 1000 * 5)
+searchResult()
+setInterval(() => searchResult(), 1000 * 10)
 
 retweet()
-setInterval(() => retweet(), 1000 * 5)
+setInterval(() => retweet(), 1000 * 10)
