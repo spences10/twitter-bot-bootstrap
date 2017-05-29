@@ -46,7 +46,7 @@ As an example, I'll configure the old [@DroidScott](twitter.com/droidscott) twit
 
 Straight forward enough for the twitter application, just make sure you add your phone number to your Twitter account before clicking the **Create your Twitter application** button.
 
-![](/src/images/twitter-application-setup.png)
+![](/images/twitter-application-setup.png)
 
 You should now be in the 'Application Management' section where you will need to take note of your keys. You should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available. You'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them as you'll need them when setting up the bot.
 
@@ -56,7 +56,7 @@ For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and
 
 Note that if you choose to use Heroku and/or Cloud9 IDE in building this (like I do in this guide) in some regions you will be prompted to give a credit card number to create these accounts.
 
-![](/src/images/c9-node-env.png)
+![](/images/c9-node-env.png)
 
 ## Set up the bot
 
@@ -72,7 +72,7 @@ $ git clone https://github.com/spences10/twitter-bot-bootstrap
 
 The environment project tree should look something like this:
 
-![](/src/images/project-structure.png)
+![](/images/project-structure.png)
 
 ## Node dependencies
 
@@ -116,13 +116,13 @@ Now you'll need to add your Twitter keys to the `.env` file. Just input the keys
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
-![](/src/images/c9-hidden-files-check.gif)
+![](/images/c9-hidden-files-check.gif)
 
 The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
 
 Take a look at the gif, click the link, sign up for or sing into `mashape`, click on `node`in the right hand panel and select out your API key, it will be in the space highlighted `<required>` in the gif.
 
-![](/src/images/sentiment-api-key.gif)
+![](/images/sentiment-api-key.gif)
 
 Add your API key to the `.env` file along with your Twitter API keys :key:
 
@@ -143,7 +143,7 @@ TWITTER_FAVORITE_RATE=5
 
 You can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
 
-![](/src/images/c9-strings-config.png)
+![](/images/c9-strings-config.png)
 
 *add query and sub-query strings*
 *you can also update blocked strings to block more stuff*
@@ -152,11 +152,11 @@ When adding sub-query strings make sure you leave a space at the beginning of th
 
 That should be it. Go to the terminal, enter `npm start` and you should get some output:
 
-![](/src/images/bot-output.png)
+![](/images/bot-output.png)
 
 Check the Twitter account:
 
-![](/src/images/twitter-account.png)
+![](/images/twitter-account.png)
 
 ## Heroku
 
@@ -164,15 +164,15 @@ Cool, now we have a bot that we can test on our dev environment, but we can't le
 
 If you haven't done so already, set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box on the top right of your dashboard. On the next screen, name the app if you want and then click **Create App**.
 
-![](/src/images/heroku-create-new-app.png)
+![](/images/heroku-create-new-app.png)
 
 You'll be presented with your app dashboard and instructions for the deployment method.
 
-![](/src/images/heroku-deploy.png)
+![](/images/heroku-deploy.png)
 
 Your app name should be displayed on the top of your dashboard. You'll need this when logging in with the Heroku CLI.
 
-![](/src/images/heroku-app-name.png)
+![](/images/heroku-app-name.png)
 
 ## Heroku CLI
 
@@ -202,7 +202,7 @@ $ git push heroku master
 
 You should get build output on the terminal:
 
-![](/src/images/heroku-build.png)
+![](/images/heroku-build.png)
 
 Then check the output with:
 
@@ -254,13 +254,13 @@ You can also deploy your app by connecting to GitHub and deploy automatically to
 
 Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method. If you have connected your GitHub account to your Heroku account then you can search for the repository. If you forked this repo, then you can just enter `twitter-bot-bootstrap` and **Search**. You can then click the **Connect** button and now you can auto deploy from GitHub!
 
-![](/src/images/heroku-connect-github.png)
+![](/images/heroku-connect-github.png)
 
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
 
-![](/src/images/heroku-crash.png)
+![](/images/heroku-crash.png)
 
 Ok, I found that sometimes the `worker` is set as `web` and it crashes out. Try setting the `worker` again:
 
@@ -271,7 +271,7 @@ $ heroku ps:scale worker=1
 
 If that still crashes out then try setting the `Resources` on the Heroku dashboard, I found if you toggle between the `web`, `heroku` and `worker` it usually settles down. Basically you need to be set to the **`worker`** Dyno this is what causes the `Error R10 (Boot timeout)` crashes because it's trying to use one of the other resources when it should be using the **`worker`** Dyno.
 
-![](/src/images/heroku-app-resources.gif)
+![](/images/heroku-app-resources.gif)
 
 Other useful Heroku commands I use:
 
