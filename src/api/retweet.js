@@ -9,7 +9,7 @@ const bot = new Twit(config.twitterKeys)
 
 const retweet = () => {
 
-  let query = queryString()
+  const query = queryString()
 
   bot.get('search/tweets', {
     q: query,
@@ -22,9 +22,15 @@ const retweet = () => {
       console.log('ERRORDERP: Cannot Search Tweet!, Description here: ', err)
     } else {
       // grab tweet ID to retweet
-      let retweetId = data.statuses[0].id_str
+      const rando = Math.floor(Math.random() * param.searchCount) + 1
+      let retweetId
 
-      if (err) console.log('ERRORDERP: Cannot Search Tweet!')
+      try {
+        retweetId = data.statuses[rando].id_str      
+      } catch (e) {
+        console.log('ERRORDERP: Cannot assign retweeID')
+        return
+      }
 
       bot.post('statuses/retweet/:id', {
         id: retweetId
@@ -32,7 +38,7 @@ const retweet = () => {
         if (err) {
           console.log('ERRORDERP: Retweet!')
         }
-        console.log('SUCCESS: RT: ', data.statuses[0].text)
+        console.log('SUCCESS: RT: ', data.statuses[rando].text, 'RANDO ID: ', rando)
       })
     }
   })
