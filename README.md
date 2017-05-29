@@ -66,50 +66,67 @@ In the project tree delete the example project files of `client`, `package.json`
 
 In your new Node.js c9 environment go to the terminal and enter:
 
-```
-$ git clone https://github.com/spences10/twitter-bot-bootstrap
+```shell
+git clone https://github.com/spences10/twitter-bot-bootstrap
 ```
 
 ## Project structure
 
 The environment project tree should look something like this:
 
-![](/images/project-structure.png)
+```text
+twitter-bot-bootstrap/
+├─ images
+├─ node_modules/
+├─ src/
+│  └─ api
+│  └─ helpers
+├─ .env
+├─ .gitignore
+├─ .snyk
+├─ index.js
+├─ LICENSE
+├─ package.json
+├─ Procfile
+└─ README.md
+```
 
 ## Node dependencies
 
 Before configuring the bot we'll need to install the dependencies, cd into the project folder with `cd tw*` this will move you to `:~/workspace/twitter-bot-bootstrap (master) $ ` from the terminal enter:
 
+```shell
+npm install
 ```
-$ npm install
-```
+
 This will install all the dependencies listed in the `package.json` file.
 
 If you get an errors then I suggest installing the dependencies one by one from the `package.json` file with the same command and the package name at the end:
 
 Here is an example of the `dependencies` in the `package,json` file:
 
-```
+```json
   "dependencies": {
-    "dotenv": "^4.0.0",
-    "twit": "^2.2.5",
-    "unique-random-array": "^1.0.0",
-    "unirest": "^0.5.1"
+    "dotenv": "4.0.0",
+    "snyk": "1.31.0",
+    "twit": "2.2.5",
+    "unique-random-array": "1.0.0",
+    "unirest": "0.5.1"
   }
 ```
 
 The npm command to install them all:
 
-```
-$ npm install --save dotenv twit unique-random-array unirest
+```shell
+npm install --save dotenv twit unique-random-array unirest
 ```
 
 If you get any `WARN` messages such as `npm WARN package.json twitter-bot@1.0.0 No repository field` this will not break the bot so it's safe to ignore.
 
 Now you can configure the bot. From the terminal enter:
 
-```
-$ npm init
+```shell
+npm init
 ```
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
@@ -120,37 +137,32 @@ If you can not find the `.env` file in the file structure of your c9 project the
 
 ![](/images/c9-hidden-files-check.gif)
 
-The `SENTIMENT_KEY` you can get a new API key at https://market.mashape.com/vivekn/sentiment-3 your key is in the `REQUEST EXAMPLE`  
+Add your API keys to the `.env` file :key:
 
-Take a look at the gif, click the link, sign up for or sing into `mashape`, click on `node`in the right hand panel and select out your API key, it will be in the space highlighted `<required>` in the gif.
+The `.env` file is where we can configure our bot, here we set what we want to search on, check out the [`twitter-bot-playground`][twee-bot-play] for information on Twitter search. 
 
-![](/images/sentiment-api-key.gif)
+`QUERY_STRING` should be what you want to retweet tweets on with the search terms separated with commas. `RANDOM_REPLY` again is comma separated replies with the ${ScreenName} which is replaced when replying to the follower. `TWITTER_RETWEET_RATE` is in minutes.
 
-Add your API key to the `.env` file along with your Twitter API keys :key:
-
-Here you should add your Twitter account name, and how often you want the bot to run the retweet and favorite functions in minutes.
+<!--Link-->
+[twee-bot-play]: https://github.com/spences10/twitter-bot-playground#use-twitter-search
 
 >NOTE none of the `.env` items have quotes `''` round them. 
 
+```text
+TWITTER_CONSUMER_KEY=Fw***********P9
+TWITTER_CONSUMER_SECRET=TD************Cq
+TWITTER_ACCESS_TOKEN=31**************UC
+TWITTER_ACCESS_TOKEN_SECRET=r0************S2
+
+QUERY_STRING=mango,horses,"donald -trump -duck" 
+RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
+
+RESULT_TYPE=mixed
+LANG=en
+
+TWITTER_RETWEET_RATE=120
+TWITTER_SEARCH_COUNT=20
 ```
-CONSUMER_KEY=Fw***********P9
-CONSUMER_SECRET=TD************Cq
-ACCESS_TOKEN=31**************UC
-ACCESS_TOKEN_SECRET=r0************S2
-SENTIMENT_KEY=Gj************lF
-TWITTER_USERNAME=DroidScott
-TWITTER_RETWEET_RATE=5
-TWITTER_FAVORITE_RATE=5
-```
-
-You can then add some keywords into the `strings.js` file for what you want to search for as well as sub-queries.
-
-![](/images/c9-strings-config.png)
-
-*add query and sub-query strings*
-*you can also update blocked strings to block more stuff*
-
-When adding sub-query strings make sure you leave a space at the beginning of the string so `' handy tip'` gets concatenated onto `'node.js'` as `node.js handy tip` and not `node.jshandy tip`.
 
 That should be it. Go to the terminal, enter `npm start` and you should get some output:
 
@@ -182,24 +194,24 @@ We're going to deploy initially via the Heroku Command Line Interface (*CLI*).
 
 On your c9 environment terminal, log into Heroku [it should be installed by default]
 
-```
-$ heroku login
+```shell
+heroku login
 ```
 
 Enter your credentials.
 
-```
-$ cd twitter-bot-bootstrap
-$ git init
-$ heroku git:remote -a your-heroku-app-name
+```shell
+cd twitter-bot-bootstrap
+git init
+heroku git:remote -a your-heroku-app-name
 ```
 
 Deploy your application.
 
-```
-$ git add .
-$ git commit -am 'make it better'
-$ git push heroku master
+```shell
+git add .
+git commit -am 'make it better'
+git push heroku master
 ```
 
 You should get build output on the terminal:
@@ -208,8 +220,8 @@ You should get build output on the terminal:
 
 Then check the output with:
 
-```
-$ heroku logs -t
+```shell
+heroku logs -t
 ```
 
 All good? Cool! :sunglasses:
@@ -220,32 +232,31 @@ Now that we have our bot on Heroku we need to add environment variables to store
 
 All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys from the `.env` file. Click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
 
-```
+```text
 CONSUMER_KEY
 CONSUMER_SECRET
 ACCESS_TOKEN
 ACCESS_TOKEN_SECRET
-SENTIMENT_KEY
 ```
 
 Once you have the Heroku vars set up, take a look at the `config.js` file of this project. You are going to delete this line:
 
-```
+```shell
 require('dotenv').config();
 ```
 
 You're now ready to deploy to Heroku again. Your console commands should look something like this:
 
-```
-$ git add .
-$ git commit -m 'add environment variables'
-$ git push heroku master
+```shell
+git add .
+git commit -m 'add environment variables'
+git push heroku master
 ```
 
 Then you can check the Heroku logs again with:
 
-```
-$ heroku logs -t
+```shell
+heroku logs -t
 ```
 
 You should now have a bot you can leave to do its thing forever more, or until you decide you want to change the search criteria :smile:
@@ -267,14 +278,14 @@ What do you mean it crashed!?
 Ok, I found that sometimes the `worker` is set as `web` and it crashes out. Try setting the `worker` again:
 
 ```shell
-$ heroku ps:scale worker=0
-$ heroku ps:scale worker=1
+heroku ps:scale worker=0
+heroku ps:scale worker=1
 ```
 
 Or try this to be sure there are no web roles:
 
 ```shell 
-$ heroku scale web=0 worker=1
+heroku scale web=0 worker=1
 ```
 
 If that still crashes out then try setting the `Resources` on the Heroku dashboard, I found if you toggle between the `web`, `heroku` and `worker` it usually settles down. Basically you need to be set to the **`worker`** Dyno this is what causes the `Error R10 (Boot timeout)` crashes because it's trying to use one of the other resources when it should be using the **`worker`** Dyno.
@@ -283,21 +294,21 @@ If that still crashes out then try setting the `Resources` on the Heroku dashboa
 
 Other useful Heroku commands I use:
 
-```
-$ heroku restart
+```shell
+heroku restart
 ```
 
 By default you can only push your master branch if you are working on a development branch i.e. `dev` branch. If you want to test on Heroku, then you can use:
 
-```
-$ git push heroku dev:master
+```shell
+git push heroku dev:master
 ```
 
 ## Handy tip
 If you want to add this to your own GitHub repo and don't want to share your API keys :key: with the world then you should turn off tracking on the `.env` file. From the terminal enter this git command:
 
-```
-$ git update-index --assume-unchanged .env
+```shell
+git update-index --assume-unchanged .env
 ```
 
 I have added my most used git command I use in this [gist](https://gist.github.com/spences10/5c492e197e95158809a83650ff97fc3a)
