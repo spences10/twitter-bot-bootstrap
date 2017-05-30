@@ -1,6 +1,6 @@
 {
   "name": "twitter-bot-bootstrap",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)",
   "main": "index.js",
   "scripts": {
