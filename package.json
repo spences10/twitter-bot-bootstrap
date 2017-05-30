@@ -7,16 +7,11 @@
     "start": "node index.js",
     "test": "snyk test && standard && node index.js",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "deploy": "now -E"
   },
   "now": {
-    "alias": "twitter-bot-bootstrap",
-    "env": {
-      "TWITTER_CONSUMER_KEY": "@ds-twit-key",
-      "TWITTER_CONSUMER_SECRET": "@ds-twit-secret",
-      "TWITTER_ACCESS_TOKEN": "@ds-twit-access",
-      "TWITTER_ACCESS_TOKEN_SECRET": "@ds-twit-access-secret"
-    }
+    "alias": "twitter-bot-bootstrap"
   },
   "repository": {
     "type": "git",
