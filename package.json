@@ -5,9 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "standard && node index.js",
+    "test": "snyk test && standard && node index.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
+  },
+  "now": {
+    "alias": "twitter-bot-bootstrap",
+    "env": {
+      "TWITTER_CONSUMER_KEY": "@ds-twit-key",
+      "TWITTER_CONSUMER_SECRET": "@ds-twit-secret",
+      "TWITTER_ACCESS_TOKEN": "@ds-twit-access",
+      "TWITTER_ACCESS_TOKEN_SECRET": "@ds-twit-access-secret"
+    }
   },
   "repository": {
     "type": "git",
@@ -29,7 +38,7 @@
   },
   "dependencies": {
     "dotenv": "4.0.0",
-    "snyk": "1.31.0",
+    "snyk": "1.31.1",
     "twit": "2.2.5",
     "unique-random-array": "1.0.0",
     "unirest": "0.5.1"
