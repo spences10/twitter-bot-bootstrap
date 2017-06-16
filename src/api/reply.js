@@ -26,6 +26,9 @@ const reply = (event) => {
   // get user's twitter handler/screen name
   let screenName = event.source.screen_name
 
+  if (screenName===config.twitterConfig.username) {
+    return
+  }
   const response = randomReply()
 
   const res = response.replace('${screenName}', screenName);
