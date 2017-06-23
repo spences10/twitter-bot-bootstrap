@@ -161,7 +161,7 @@ QUERY_STRING=mango,horses,"donald -trump -duck"
 RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
 
 RESULT_TYPE=mixed
-LANG=en
+LANGUAGE=en
 
 TWITTER_RETWEET_RATE=120
 TWITTER_SEARCH_COUNT=20
