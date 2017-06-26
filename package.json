@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "dotenv": "4.0.0",
-    "snyk": "1.36.0",
+    "snyk": "1.36.1",
     "twit": "2.2.9",
     "unique-random-array": "1.0.0",
     "unirest": "0.5.1"
