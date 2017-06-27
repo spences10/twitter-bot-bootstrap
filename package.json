@@ -33,10 +33,10 @@
     "start": "nodemon index.js",
     "test": "snyk test && jest --coverage",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn build && yarn snyk-protect",
+    "prepublish": "npm run build && npm run snyk-protect",
     "dev": "nodemon --exec babel-node index.js jest --coverage",
     "build": "babel src -d build",
-    "semantic-release": "semantic-release pre && yarn publish && semantic-release post",
+    "semantic-release": "semantic-release pre && npm run publish && semantic-release post",
     "commit": "git-cz"
   },
   "repository": {
