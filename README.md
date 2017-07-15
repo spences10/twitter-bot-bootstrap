@@ -59,7 +59,7 @@ You should now be in the 'Application Management' section where you will need to
 
 If you don't already have a dev environment with node installed then for a quick-start I'd suggest using [Cloud9](https://c9.io/) you can be up and running in minutes with one of the pre made Node.js environments.
 
-Note that in some regions you will be prompted to enter credit card information to use Cloud9 you will not be charged, there are other options to use like [Glitch](glitch.com) if you don't have a credit card. For this guide I'm going to be using Cloud9 which is what will be in the images.
+Note that in some regions you will be prompted to enter credit card information to use Cloud9 you will not be charged, there are other options to use like [Glitch](https://glitch.com) if you don't have a credit card. For this guide I'm going to be using Cloud9 which is what will be in the images.
 
 ![](/images/c9-node-env.png)
 
