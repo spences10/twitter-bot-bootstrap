@@ -14,6 +14,7 @@
   - [What you'll need](#what-youll-need)
   - [Setup twitter](#setup-twitter)
   - [Setup development environment](#setup-development-environment)
+  - [Node 8](#node-8)
   - [Set up the bot](#set-up-the-bot)
   - [Project structure](#project-structure)
   - [Node dependencies](#node-dependencies)
@@ -62,6 +63,18 @@ If you don't already have a dev environment with node installed then for a quick
 Note that in some regions you will be prompted to enter credit card information to use Cloud9 you will not be charged, there are other options to use like [Glitch](https://glitch.com) if you don't have a credit card. For this guide I'm going to be using Cloud9 which is what will be in the images.
 
 ![](/images/c9-node-env.png)
+
+## Node 8
+
+If you're using a c9 environment then you'll need to upgrade `node` which I think comes pre-installed at version 6 which will cause some errors with the code in this repository, so we're going to go with version 8 for this, so, in the terminal:
+
+```shell
+nvm install 8 # install node 8
+nvm use 8 # set it to use node 8
+nvm alias default 8 # default to 8 so version persists after reboots
+```
+
+`nvm` stands for Node Version Manager which comes installed by default on c9 machines :+1:
 
 ## Set up the bot
 
