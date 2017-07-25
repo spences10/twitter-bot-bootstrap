@@ -10,7 +10,7 @@
     "babel-register": "^6.24.1",
     "dotenv": "^4.0.0",
     "nodemon": "^1.11.0",
-    "snyk": "^1.25.1",
+    "snyk": "1.36.2",
     "twitter": "^1.7.0",
     "unique-random-array": "^1.0.0"
   },
@@ -22,7 +22,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-spences10": "0.0.8",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
@@ -43,7 +43,11 @@
     "type": "git",
     "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "keywords": [ "twitter", "bot", "bootstrap" ],
+  "keywords": [
+    "twitter",
+    "bot",
+    "bootstrap"
+  ],
   "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "bugs": {
