@@ -17,11 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "keywords": [
-    "twitter",
-    "bot",
-    "bootstrap"
-  ],
+  "keywords": [ "twitter", "bot", "bootstrap" ],
   "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "bugs": {
