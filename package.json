@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "snyk test && standard && node index.js",
+    "test": "snyk test && node index.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "deploy": "now -E"
@@ -17,12 +17,8 @@
     "type": "git",
     "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "keywords": [
-    "twitter",
-    "bot",
-    "bootstrap"
-  ],
-  "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
+  "keywords": [ "twitter", "bot", "bootstrap" ],
+  "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
