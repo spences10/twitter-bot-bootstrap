@@ -27,11 +27,6 @@
 
 </details>
 
->Since doing this initial guide I have discovered the awesomeness of Zeit's now, the master branch of this project will now use `now` for deployment, if you want to use Heroku you can refer to the [deploy with Heroku][dep-with-heroku] branch :+1:.
-
-<!--link-->
-[dep-with-heroku]: https://github.com/spences10/twitter-bot-bootstrap/tree/deploy-with-heroku 
-
 This is a bootstrap for setting up a simple Twitter bot with Node.js using the `twit` module. The bot will retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
 
 As a primer for this, there is a great post by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot. This is an expansion on that with further detail on configuration and deployment with `now`.
