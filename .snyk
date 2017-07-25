@@ -9,4 +9,18 @@ ignore:
     - unirest > request > qs:
         reason: None given
         expires: '2017-04-05T14:12:40.490Z'
-patch: {}
+  'npm:shelljs:20140723':
+    - eslint > shelljs:
+        reason: None given
+        expires: '2017-08-24T05:32:33.548Z'
+    - eslint-config-spences10 > eslint > shelljs:
+        reason: None given
+        expires: '2017-08-24T05:32:33.548Z'
+    - eslint-config-spences10 > eslint-plugin-class-property > eslint > shelljs:
+        reason: None given
+        expires: '2017-08-24T05:32:33.548Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - eslint-module-utils > debug > ms:
+        patched: '2017-07-25T05:31:31.040Z'
