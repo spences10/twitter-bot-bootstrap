@@ -17,22 +17,23 @@
     "type": "git",
     "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "keywords": [ "twitter", "bot", "bootstrap" ],
+  "keywords": [
+    "twitter",
+    "bot",
+    "bootstrap"
+  ],
   "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
   "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
-  "devDependencies": {
-    "standard": "10.0.2"
-  },
+  "devDependencies": {},
   "dependencies": {
     "dotenv": "4.0.0",
     "snyk": "1.36.2",
     "twit": "2.2.9",
-    "unique-random-array": "1.0.0",
-    "unirest": "0.5.1"
+    "unique-random-array": "1.0.0"
   },
   "snyk": true
 }
