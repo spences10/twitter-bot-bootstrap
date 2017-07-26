@@ -141,17 +141,23 @@ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. 
+Now you'll need to add your Twitter keys to the `.env` file.
+
+From the terminal in the root of the projects directory enter:
+
+```shell
+touch .env
+```
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
 ![](/images/c9-hidden-files-check.gif)
 
-Add your API keys to the `.env` file :key:
+Add your Twitter API keys in here allong with your search terms and replies :key:
 
 The `.env` file is where we can configure our bot, here we set what we want to search on, check out the [`twitter-bot-playground`][twee-bot-play] for information on Twitter search. 
 
-`QUERY_STRING` should be what you want to retweet tweets on with the search terms separated with commas. `RANDOM_REPLY` again is comma separated replies with the ${ScreenName} which is replaced when replying to the follower. `TWITTER_RETWEET_RATE` is in minutes.
+`QUERY_STRING` should be what you want to retweet tweets on with the search terms separated with commas. `RANDOM_REPLY` is pipe `|` separated replies with the ${ScreenName} which is replaced when replying to the follower.
 
 <!--Link-->
 [twee-bot-play]: https://github.com/spences10/twitter-bot-playground#use-twitter-search
@@ -164,14 +170,15 @@ TWITTER_CONSUMER_SECRET=TD************Cq
 TWITTER_ACCESS_TOKEN=31**************UC
 TWITTER_ACCESS_TOKEN_SECRET=r0************S2
 
-QUERY_STRING=mango,horses,"donald -trump -duck" 
-RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
+QUERY_STRING=javascript
 
-RESULT_TYPE=mixed
+RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?|@${screenName} thanks for following! What are you working on today?
+
+RANDOM_EMOJI=👍,🙌,🌈,🍫,🚀,😁
+
+TWITTER_USERNAME=DroidScott
+
 LANGUAGE=en
-
-TWITTER_RETWEET_RATE=120
-TWITTER_SEARCH_COUNT=20
 ```
 
 ![](/images/clone-and-install.gif)
@@ -208,12 +215,7 @@ This will use all our environment variables we defined within our `.env` file fo
 
 You will get terminal output with a URL for where your bot is located, click the link and you can watch it get built.
 
-## Handy tip
-If you want to add this to your own GitHub repo and don't want to share your API keys :key: with the world then you should turn off tracking on the `.env` file. From the terminal enter this git command:
-
-```shell
-git update-index --assume-unchanged .env
-```
+## Handy information
 
 I have added my most used git commands I use in this [repo][cheetsheets] I use it on a daily basis, please feel free to use it.
 
@@ -231,10 +233,6 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 * [twitter-mctwitbot](https://medium.com/@spences10/twitter-mctwitbot-4d15cd005dc0#.dp9q5f427)
 
 * [awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
-
----
-
-[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ## License
 
