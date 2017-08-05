@@ -92,8 +92,10 @@ twitter-bot-bootstrap/
 ├─ images
 ├─ node_modules/
 ├─ src/
-│  └─ api
-│  └─ helpers
+│  ├─ api
+│  ├─ bot.js
+│  ├─ config.js
+│  └─ rando.js
 ├─ .env
 ├─ .gitignore
 ├─ .snyk
