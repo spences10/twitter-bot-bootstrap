@@ -1,59 +1,35 @@
 {
   "name": "twitter-bot-bootstrap",
-  "version": "0.0.0-development",
-  "description": "[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)",
+  "version": "0.2.1",
+  "description": "[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)",
   "main": "index.js",
-  "dependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "dotenv": "^4.0.0",
-    "nodemon": "^1.11.0",
-    "snyk": "1.36.2",
-    "twitter": "^1.7.0",
-    "unique-random-array": "^1.0.0"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "6.23.0",
-    "babel-preset-env": "1.5.1",
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-config-spences10": "0.0.8",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jest": "^19.0.1",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "jest-cli": "^19.0.2",
-    "semantic-release": "^6.3.6"
-  },
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "snyk test && jest --coverage",
+    "start": "node index.js",
+    "test": "snyk test && node index.js",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run build && npm run snyk-protect",
-    "dev": "nodemon --exec babel-node index.js jest --coverage",
-    "build": "babel src -d build",
-    "semantic-release": "semantic-release pre && npm run publish && semantic-release post",
-    "commit": "git-cz"
+    "prepublish": "npm run snyk-protect",
+    "deploy": "now -E"
+  },
+  "now": {
+    "alias": "twitter-bot-bootstrap"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
   "keywords": [ "twitter", "bot", "bootstrap" ],
-  "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
   "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
-  "snyk": true,
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  }
+  "devDependencies": {},
+  "dependencies": {
+    "dotenv": "4.0.0",
+    "snyk": "1.40.2",
+    "twit": "2.2.9",
+    "unique-random-array": "1.0.0"
+  },
+  "snyk": true
 }
