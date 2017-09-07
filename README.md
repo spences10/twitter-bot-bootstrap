@@ -27,9 +27,9 @@
 
 </details>
 
-This is a bootstrap for setting up a simple Twitter bot with Node.js using the `twit` module. The bot will retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
+This is a bootstrap for setting up a simple Twitter bot with Node.js using the npm `twit` module. The bot will retweet what you specify when configuring it. It will also reply to followers with a selection of canned responses.
 
-As a primer for this, there is a great post by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot. This is an expansion on that with further detail on configuration and deployment with `now`.
+As a primer for this, there is a great post by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot, check it out in the **Links** section. This is an expansion on that with further detail on configuration and deployment with `now` from Zeit.
 
 Before starting the clock you'll need to set up some accounts if you don't have them already.
 
@@ -73,9 +73,9 @@ nvm alias default 8 # default to 8 so version persists after reboots
 
 ## Set up the bot
 
-In the project tree delete the example project files of `client`, `node_modules`, `package.json`, `README.md` and `server.js`. You won't need them, but you can leave them there if you so desire.
+In the project tree for the default c9 node application delete the example project files of `client`, `node_modules`, `package.json`, `README.md` and `server.js`. You won't need them, but you can leave them there if you so desire.
 
-![](/images/delete-c9-starter.gif)  
+![](/images/delete-c9-starter.gif)
 
 In your new Node.js c9 environment go to the terminal and enter:
 
@@ -93,16 +93,21 @@ twitter-bot-bootstrap/
 ├─ node_modules/
 ├─ src/
 │  ├─ api
+│  │  ├─ reply.js
+│  │  └─ retweet.js
 │  ├─ bot.js
 │  ├─ config.js
 │  └─ rando.js
 ├─ .env
 ├─ .gitignore
 ├─ .snyk
-├─ index.js
+├─ CODE_OF_CONDUCT.md
+├─ CONTRIBUTING.md
 ├─ LICENSE
-├─ package.json
-└─ README.md
+├─ README.md
+├─ index.js
+├─ package-lock.json
+└─ package.json
 ```
 
 ## Node dependencies
@@ -142,7 +147,34 @@ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file. 
+**Make a `.env` file** make a file named `.env` do it with the terminal with the following commands:
+
+```shell
+touch .env
+```
+
+This should be at the root of your project directory.
+
+Now you'll need to add your Twitter keys to the `.env` file. Just input the keys in their corresponding fields and save the file.
+
+The file structure should look as follows:
+
+```
+TWITTER_CONSUMER_KEY=
+TWITTER_CONSUMER_SECRET=
+TWITTER_ACCESS_TOKEN=
+TWITTER_ACCESS_TOKEN_SECRET=
+
+QUERY_STRING=my super awesome query string!
+
+RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
+
+RESULT_TYPE=mixed
+LANGUAGE=en
+
+TWITTER_RETWEET_RATE=.1
+TWITTER_SEARCH_COUNT=20
+```
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
@@ -150,7 +182,7 @@ If you can not find the `.env` file in the file structure of your c9 project the
 
 Add your API keys to the `.env` file :key:
 
-The `.env` file is where we can configure our bot, here we set what we want to search on, check out the [`twitter-bot-playground`][twee-bot-play] for information on Twitter search. 
+The `.env` file is where we can configure our bot, here we set what we want to search on, check out the [`twitter-bot-playground`][twee-bot-play] for information on Twitter search.
 
 `QUERY_STRING` should be what you want to retweet tweets on with the search terms separated with commas. `RANDOM_REPLY` again is comma separated replies with the ${ScreenName} which is replaced when replying to the follower. `TWITTER_RETWEET_RATE` is in minutes.
 
@@ -165,7 +197,7 @@ TWITTER_CONSUMER_SECRET=TD************Cq
 TWITTER_ACCESS_TOKEN=31**************UC
 TWITTER_ACCESS_TOKEN_SECRET=r0************S2
 
-QUERY_STRING=mango,horses,"donald -trump -duck" 
+QUERY_STRING=mango,horses,"donald -trump -duck"
 RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
 
 RESULT_TYPE=mixed
