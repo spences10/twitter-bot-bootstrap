@@ -147,7 +147,7 @@ npm init
 
 This will configure the `package.json` file with your details as desired. Just keep hitting return if you're happy with the defaults.
 
-**Make a `.env` file** make a file named `.env` do it with the terminal with the following commands:
+**Make a `.env` file:** make a file named `.env` do it with the terminal with the following command:
 
 ```shell
 touch .env
@@ -165,9 +165,9 @@ TWITTER_CONSUMER_SECRET=
 TWITTER_ACCESS_TOKEN=
 TWITTER_ACCESS_TOKEN_SECRET=
 
-QUERY_STRING=my super awesome query string!
+QUERY_STRING=my super awesome query string!,google,android
 
-RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
+RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?|@${screenName} thanks for following! What are you working on today?
 
 RESULT_TYPE=mixed
 LANGUAGE=en
@@ -175,6 +175,8 @@ LANGUAGE=en
 TWITTER_RETWEET_RATE=.1
 TWITTER_SEARCH_COUNT=20
 ```
+
+Note that `RANDOM_REPLY` is split with a pipe `|` and the `QUERY_STRING` is split by a comma `,` this is so that `RANDOM_REPLY` can have a comma in the reply text.
 
 If you can not find the `.env` file in the file structure of your c9 project then you will need to enable the **`Show Hidden Files`** option. In the file view select the settings cog then tick the `Show Hidden Files` option if it is not already checked.
 
