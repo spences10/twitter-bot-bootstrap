@@ -24,13 +24,13 @@ const retweet = () => {
         console.log('ERRORDERP: Cannot Search Tweet!, Description here: ', err)
       } else {
         // grab random tweet ID to retweet - desired range for random number is [0..data.statuses.length-1]
-        const rando = Math.floor(Math.random() * data.statuses.length);
+        const rando = Math.floor(Math.random() * data.statuses.length)
         let retweetId
 
         try {
           retweetId = data.statuses[rando].id_str
         } catch (e) {
-          console.log('ERRORDERP: Cannot assign retweeID; exception message: ' + e.message);
+          console.log('ERRORDERP: Cannot assign retweeID; exception message: ' + e.message)
           return
         }
 
