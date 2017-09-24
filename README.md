@@ -269,8 +269,6 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 
 ---
 
-[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 ## License
 
 MIT License
