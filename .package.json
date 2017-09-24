@@ -1,0 +1,41 @@
+{
+  "name": "twitter-bot-bootstrap",
+  "version": "0.2.1",
+  "description": "A bootstrap for a twitter bot!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "snyk test && node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect",
+    "deploy": "now -E"
+  },
+  "now": {
+    "alias": "twitter-bot-bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot",
+    "bootstrap"
+  ],
+  "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
+  },
+  "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
+  "devDependencies": {
+    "contributor": "0.1.25"
+  },
+  "dependencies": {
+    "dotenv": "4.0.0",
+    "snyk": "1.40.2",
+    "twit": "2.2.9",
+    "unique-random-array": "1.0.0"
+  },
+  "snyk": true
+}
