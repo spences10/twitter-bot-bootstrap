@@ -10,7 +10,7 @@ module.exports = {
   twitterConfig: {
     queryString: process.env.QUERY_STRING,
     resultType: process.env.RESULT_TYPE,
-    language: process.env.LANGUAGE,
+    language: process.env.TWITTER_LANG,
     username: process.env.TWITTER_USERNAME,
     retweet: process.env.TWITTER_RETWEET_RATE * 1000 * 60,
     like: process.env.TWITTER_LIKE_RATE * 1000 * 60,

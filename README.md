@@ -170,7 +170,7 @@ QUERY_STRING=my super awesome query string!,google,android
 RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?|@${screenName} thanks for following! What are you working on today?
 
 RESULT_TYPE=mixed
-LANGUAGE=en
+TWITTER_LANG=en
 
 TWITTER_RETWEET_RATE=.1
 TWITTER_SEARCH_COUNT=20
@@ -203,7 +203,7 @@ QUERY_STRING=mango,horses,"donald -trump -duck"
 RANDOM_REPLY=Hi @${screenName} thanks for the follow! What are you working on today?,@${screenName} thanks for following! What are you working on today?
 
 RESULT_TYPE=mixed
-LANGUAGE=en
+TWITTER_LANG=en
 
 TWITTER_RETWEET_RATE=120
 TWITTER_SEARCH_COUNT=20
