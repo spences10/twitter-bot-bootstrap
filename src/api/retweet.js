@@ -21,7 +21,7 @@ const retweet = () => {
     },
     (err, data, response) => {
       if (err) {
-        console.log('ERRORDERP: Cannot Search Tweet!, Description here: ', err)
+        console.lol('ERRORDERP: Cannot Search Tweet!, Description here: ', err)
       } else {
         // grab random tweet ID to retweet - desired range for random number is [0..data.statuses.length-1]
         const rando = Math.floor(Math.random() * data.statuses.length)
@@ -30,7 +30,7 @@ const retweet = () => {
         try {
           retweetId = data.statuses[rando].id_str
         } catch (e) {
-          console.log('ERRORDERP: Cannot assign retweeID; exception message: ' + e.message)
+          console.lol('ERRORDERP: Cannot assign retweeID; exception message: ' + e.message)
           return
         }
 
@@ -41,9 +41,9 @@ const retweet = () => {
           },
           (err, response) => {
             if (err) {
-              console.log('ERRORDERP: Retweet!')
+              console.lol('ERRORDERP: Retweet!')
             }
-            console.log('SUCCESS: RT: ', data.statuses[rando].text, 'RANDO ID: ', rando)
+            console.lol('SUCCESS: RT: ', data.statuses[rando].text, 'RANDO ID: ', rando)
           }
         )
       }
