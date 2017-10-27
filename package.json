@@ -41,13 +41,13 @@
   "snyk": true,
   "contributors": [
     {
-      "name": "Will Hurley",
+      "name": "Snyk bot",
       "email": null,
-      "url": "https://github.com/wjhurley",
-      "contributions": 9,
-      "additions": 66,
-      "deletions": 66,
-      "hireable": true
+      "url": "https://github.com/snyk-bot",
+      "contributions": 1,
+      "additions": 19,
+      "deletions": 3,
+      "hireable": null
     },
     {
       "name": "Joshua Vaage",
@@ -59,12 +59,21 @@
       "hireable": true
     },
     {
-      "name": "Snyk bot",
+      "name": "Paul Abrams",
       "email": null,
-      "url": "https://github.com/snyk-bot",
+      "url": "https://github.com/pabrams",
       "contributions": 1,
-      "additions": 19,
+      "additions": 3,
       "deletions": 3,
+      "hireable": null
+    },
+    {
+      "name": "Sergio Ruiz",
+      "email": null,
+      "url": "https://github.com/serginator",
+      "contributions": 3,
+      "additions": 22,
+      "deletions": 4,
       "hireable": null
     },
     {
@@ -77,33 +86,6 @@
       "hireable": true
     },
     {
-      "name": "Scott Spence",
-      "email": null,
-      "url": "https://github.com/spences10",
-      "contributions": 121,
-      "additions": 16209,
-      "deletions": 11605,
-      "hireable": true
-    },
-    {
-      "name": "Sergio Ruiz",
-      "email": null,
-      "url": "https://github.com/serginator",
-      "contributions": 3,
-      "additions": 22,
-      "deletions": 4,
-      "hireable": null
-    },
-    {
-      "name": "Paul Abrams",
-      "email": null,
-      "url": "https://github.com/pabrams",
-      "contributions": 1,
-      "additions": 3,
-      "deletions": 3,
-      "hireable": null
-    },
-    {
       "name": "Millan Sanchez",
       "email": null,
       "url": "https://github.com/masdc",
@@ -111,6 +93,42 @@
       "additions": 5,
       "deletions": 2,
       "hireable": null
+    },
+    {
+      "name": "Will Hurley",
+      "email": null,
+      "url": "https://github.com/wjhurley",
+      "contributions": 9,
+      "additions": 66,
+      "deletions": 66,
+      "hireable": true
+    },
+    {
+      "name": "Scott Spence",
+      "email": null,
+      "url": "https://github.com/spences10",
+      "contributions": 124,
+      "additions": 16389,
+      "deletions": 13266,
+      "hireable": true
+    },
+    {
+      "name": "Martius",
+      "email": null,
+      "url": "https://github.com/martiuslim",
+      "contributions": 1,
+      "additions": 13,
+      "deletions": 0,
+      "hireable": null
+    },
+    {
+      "name": "Nikki L.R.",
+      "email": null,
+      "url": "https://github.com/nikkilr88",
+      "contributions": 7,
+      "additions": 46,
+      "deletions": 33,
+      "hireable": true
     }
   ]
 }
