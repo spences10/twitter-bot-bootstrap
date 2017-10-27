@@ -1,5 +1,5 @@
 const isReply = (tweet) => {
-    var RT = /^RT/i;
+    const RT = /^RT/i;
     
     if (RT.test(tweet.text) ||
         tweet.is_quote_status ||
