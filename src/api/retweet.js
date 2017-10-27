@@ -1,6 +1,7 @@
 const Twit = require('twit')
 const unique = require('unique-random-array')
 const config = require('../config')
+const isReply = require('../helpers/isReply')
 
 const param = config.twitterConfig
 const queryString = unique(param.queryString.split(','))
@@ -27,13 +28,10 @@ const retweet = () => {
         const rando = Math.floor(Math.random() * data.statuses.length)
         let retweetId
 
-        try {
+        if(!isReply(data.statuses[rando])) {
           retweetId = data.statuses[rando].id_str
-        } catch (e) {
-          console.lol('ERRORDERP: Cannot assign retweeID; exception message: ' + e.message)
-          return
         }
-
+        
         bot.post(
           'statuses/retweet/:id',
           {
