@@ -4,7 +4,7 @@ const config = require('../config')
 const isReply = require('../helpers/isReply')
 
 const param = config.twitterConfig
-const queryString = unique(param.queryString.split(","))
+const queryString = unique(param.queryString.split(','))
 
 const bot = new Twit(config.twitterKeys)
 
@@ -28,10 +28,10 @@ const retweet = () => {
         const rando = Math.floor(Math.random() * data.statuses.length)
         let retweetId
 
-        if(!isReply(data.statuses[rando])) {
+        if (!isReply(data.statuses[rando])) {
           retweetId = data.statuses[rando].id_str
         }
-        
+
         bot.post(
           'statuses/retweet/:id',
           {
@@ -41,7 +41,12 @@ const retweet = () => {
             if (err) {
               console.lol('ERRORDERP: Retweet!')
             }
-            console.lol('SUCCESS: RT: ', data.statuses[rando].text, 'RANDO ID: ', rando)
+            console.lol(
+              'SUCCESS: RT: ',
+              data.statuses[rando].text,
+              'RANDO ID: ',
+              rando
+            )
           }
         )
       }
