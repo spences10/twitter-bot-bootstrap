@@ -6,10 +6,24 @@
   "scripts": {
     "start": "node index.js",
     "test": "snyk test && node index.js",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk protect contributor --yes",
     "prepublish": "npm run snyk-protect",
     "deploy": "now -E",
-    "format": "prettier --single-quote --trailing-comma es5 --write src/**/*.js"
+    "format": "prettier es5 --no-semi --single-quote --write src/**/*.js"
+  },
+  "pre-commit": [
+    "format"
+  ],
+  "devDependencies": {
+    "contributor": "0.1.25",
+    "prettier": "1.7.4"
+  },
+  "dependencies": {
+    "console.lol": "0.1.2",
+    "dotenv": "4.0.0",
+    "snyk": "1.46.0",
+    "twit": "2.2.9",
+    "unique-random-array": "1.0.0"
   },
   "now": {
     "alias": "twitter-bot-bootstrap"
@@ -29,17 +43,9 @@
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
   "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
-  "pre-commit": ["format"],
-  "devDependencies": {
-    "contributor": "0.1.25"
-  },
-  "dependencies": {
-    "console.lol": "0.1.2",
-    "dotenv": "4.0.0",
-    "snyk": "1.46.0",
-    "twit": "2.2.9",
-    "unique-random-array": "1.0.0"
-  },
+  "pre-commit": [
+    "format"
+  ],
   "snyk": true,
   "contributors": [
     {
