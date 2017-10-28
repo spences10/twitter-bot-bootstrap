@@ -9,7 +9,8 @@
     "snyk-protect": "snyk protect contributor --yes",
     "prepublish": "npm run snyk-protect",
     "deploy": "now -E",
-    "format": "prettier es5 --no-semi --single-quote --write src/**/*.js"
+    "format": "prettier es5 --no-semi --single-quote --write src/**/*.js",
+    "contrib": "contributor"
   },
   "pre-commit": [
     "format"
@@ -43,11 +44,17 @@
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
   "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
-  "pre-commit": [
-    "format"
-  ],
   "snyk": true,
   "contributors": [
+    {
+      "name": "Martius",
+      "email": null,
+      "url": "https://github.com/martiuslim",
+      "contributions": 1,
+      "additions": 13,
+      "deletions": 0,
+      "hireable": null
+    },
     {
       "name": "Snyk bot",
       "email": null,
@@ -67,15 +74,6 @@
       "hireable": true
     },
     {
-      "name": "Paul Abrams",
-      "email": null,
-      "url": "https://github.com/pabrams",
-      "contributions": 1,
-      "additions": 3,
-      "deletions": 3,
-      "hireable": null
-    },
-    {
       "name": "Sergio Ruiz",
       "email": null,
       "url": "https://github.com/serginator",
@@ -85,12 +83,21 @@
       "hireable": null
     },
     {
-      "name": "Jade Thornton",
+      "name": "Scott Spence",
       "email": null,
-      "url": "https://github.com/Raindeer44",
-      "contributions": 1,
-      "additions": 1,
-      "deletions": 2,
+      "url": "https://github.com/spences10",
+      "contributions": 126,
+      "additions": 18460,
+      "deletions": 13315,
+      "hireable": true
+    },
+    {
+      "name": "Will Hurley",
+      "email": null,
+      "url": "https://github.com/wjhurley",
+      "contributions": 9,
+      "additions": 66,
+      "deletions": 66,
       "hireable": true
     },
     {
@@ -103,31 +110,22 @@
       "hireable": null
     },
     {
-      "name": "Will Hurley",
+      "name": "Paul Abrams",
       "email": null,
-      "url": "https://github.com/wjhurley",
-      "contributions": 9,
-      "additions": 66,
-      "deletions": 66,
-      "hireable": true
-    },
-    {
-      "name": "Scott Spence",
-      "email": null,
-      "url": "https://github.com/spences10",
-      "contributions": 124,
-      "additions": 16389,
-      "deletions": 13266,
-      "hireable": true
-    },
-    {
-      "name": "Martius",
-      "email": null,
-      "url": "https://github.com/martiuslim",
+      "url": "https://github.com/pabrams",
       "contributions": 1,
-      "additions": 13,
-      "deletions": 0,
+      "additions": 3,
+      "deletions": 3,
       "hireable": null
+    },
+    {
+      "name": "Jade Thornton",
+      "email": null,
+      "url": "https://github.com/Raindeer44",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 2,
+      "hireable": true
     },
     {
       "name": "Nikki L.R.",
