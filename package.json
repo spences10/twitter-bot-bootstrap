@@ -8,7 +8,8 @@
     "test": "snyk test && node index.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "deploy": "now -E"
+    "deploy": "now -E",
+    "format": "prettier --single-quote --trailing-comma es5 --write src/**/*.js"
   },
   "now": {
     "alias": "twitter-bot-bootstrap"
@@ -28,6 +29,7 @@
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
   "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
+  "pre-commit": ["format"],
   "devDependencies": {
     "contributor": "0.1.25"
   },

@@ -4,7 +4,7 @@ const config = require('../config')
 const isReply = require('../helpers/isReply')
 
 const param = config.twitterConfig
-const queryString = unique(param.queryString.split(','))
+const queryString = unique(param.queryString.split(","))
 
 const bot = new Twit(config.twitterKeys)
 
