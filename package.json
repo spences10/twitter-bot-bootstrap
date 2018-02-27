@@ -22,7 +22,7 @@
   "dependencies": {
     "console.lol": "0.1.2",
     "dotenv": "5.0.1",
-    "snyk": "1.69.9",
+    "snyk": "1.69.10",
     "twit": "2.2.9",
     "unique-random-array": "1.0.0"
   },
