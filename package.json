@@ -7,22 +7,18 @@
     "start": "node index.js",
     "test": "snyk test && node index.js",
     "snyk-protect": "snyk protect contributor --yes",
-    "prepublish": "npm run snyk-protect",
     "deploy": "now -E",
-    "format": "prettier es5 --no-semi --single-quote --write src/**/*.js",
+    "format":
+      "prettier es5 --no-semi --single-quote --write src/**/*.js",
     "contrib": "contributor"
   },
-  "pre-commit": [
-    "format"
-  ],
+  "pre-commit": ["format"],
   "devDependencies": {
     "contributor": "0.1.25",
     "prettier": "1.12.1"
   },
   "dependencies": {
-    "console.lol": "0.1.2",
     "dotenv": "5.0.1",
-    "snyk": "1.73.0",
     "twit": "2.2.9",
     "unique-random-array": "1.0.1"
   },
@@ -31,19 +27,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spences10/twitter-bot-bootstrap.git"
+    "url":
+      "git+https://github.com/spences10/twitter-bot-bootstrap.git"
   },
-  "keywords": [
-    "twitter",
-    "bot",
-    "bootstrap"
-  ],
-  "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
+  "keywords": ["twitter", "bot", "bootstrap"],
+  "author":
+    "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spences10/twitter-bot-bootstrap/issues"
   },
-  "homepage": "https://github.com/spences10/twitter-bot-bootstrap#readme",
+  "homepage":
+    "https://github.com/spences10/twitter-bot-bootstrap#readme",
   "snyk": true,
   "contributors": [
     {
