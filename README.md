@@ -25,6 +25,13 @@
 
 ## Intro
 
+This is a bot to retweet on your selected keywords and that will thank
+a user for following you
+
+This will use the Twitter stream API in place of the Twitter search
+API which causes some confusion for new users so this is an attempt to
+simplify the process
+
 ## Info
 
 I have added my most used git commands I use in this
