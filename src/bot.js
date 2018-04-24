@@ -6,14 +6,13 @@ const { createServer } = require('http')
 // is no longer allowed, so:
 const Twit = require('twit')
 const config = require('./config')
-const consoleLol = require('console.lol')
 
 const bot = new Twit(config.twitterKeys)
 
 const retweet = require('./api/retweet')
 const reply = require('./api/reply')
 
-console.rofl('Bot starting...')
+console.log('Bot starting...')
 
 // retweet on keywords
 retweet()

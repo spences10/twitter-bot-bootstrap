@@ -22,9 +22,13 @@ const retweet = () => {
     },
     (err, data, response) => {
       if (err) {
-        console.lol('ERRORDERP: Cannot Search Tweet!, Description here: ', err)
+        console.log(
+          'ERRORDERP: Cannot Search Tweet!, Description here: ',
+          err
+        )
       } else {
-        // grab random tweet ID to retweet - desired range for random number is [0..data.statuses.length-1]
+        // grab random tweet ID to retweet - desired range for
+        // random number is [0..data.statuses.length-1]
         const rando = Math.floor(Math.random() * data.statuses.length)
         let retweetId
 
@@ -39,9 +43,9 @@ const retweet = () => {
           },
           (err, response) => {
             if (err) {
-              console.lol('ERRORDERP: Retweet!')
+              console.log('ERRORDERP: Retweet!')
             }
-            console.lol(
+            console.log(
               'SUCCESS: RT: ',
               data.statuses[rando].text,
               'RANDO ID: ',
