@@ -1,4 +1,4 @@
-const rando = (arr) => {
+const rando = arr => {
   const index = Math.floor(Math.random() * arr.length)
   return arr[index]
 }
