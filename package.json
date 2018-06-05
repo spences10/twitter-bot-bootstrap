@@ -17,12 +17,12 @@
   ],
   "devDependencies": {
     "contributor": "0.1.25",
-    "prettier": "1.13.1"
+    "prettier": "1.13.4"
   },
   "dependencies": {
     "console.lol": "0.1.2",
     "dotenv": "6.0.0",
-    "snyk": "1.78.0",
+    "snyk": "1.82.0",
     "twit": "2.2.9",
     "unique-random-array": "1.0.1"
   },
