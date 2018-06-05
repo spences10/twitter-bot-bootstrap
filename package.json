@@ -17,7 +17,7 @@
   ],
   "devDependencies": {
     "contributor": "0.1.25",
-    "prettier": "1.13.2"
+    "prettier": "1.13.4"
   },
   "dependencies": {
     "console.lol": "0.1.2",
