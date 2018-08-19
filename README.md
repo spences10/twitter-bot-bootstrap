@@ -1,6 +1,8 @@
 # Twitter bot bootstrap
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/spences10/twitter-bot-bootstrap.svg)](https://greenkeeper.io/) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT) [![Chat](https://badges.gitter.im/awesome-twitter-bots/Lobby.svg)][gitter-url]
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://opensource.org/licenses/MIT)
+[![Chat](https://badges.gitter.im/awesome-twitter-bots/Lobby.svg)][gitter-url]
 
 <!--links-->
 [gitter-url]: https://gitter.im/awesome-twitter-bots/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
