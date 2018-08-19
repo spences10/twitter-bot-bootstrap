@@ -6,15 +6,17 @@
   "scripts": {
     "start": "node index.js",
     "deploy": "now -E",
-    "format": "prettier es5 --no-semi --single-quote --write src/**/*.js",
-    "contrib": "contributor"
+    "contrib": "contributor",
+    "format": "pretty-quick",
+    "precommit": "pretty-quick --staged"
   },
   "pre-commit": [
     "format"
   ],
   "devDependencies": {
     "contributor": "0.1.25",
-    "prettier": "1.13.1"
+    "prettier": "1.13.1",
+    "pretty-quick": "1.6.0"
   },
   "dependencies": {
     "console.lol": "0.1.2",
