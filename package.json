@@ -15,7 +15,7 @@
   ],
   "devDependencies": {
     "contributor": "0.1.25",
-    "prettier": "1.14.3",
+    "prettier": "1.15.1",
     "pretty-quick": "1.8.0"
   },
   "dependencies": {
